@@ -1,46 +1,39 @@
 Option Compare Database
 Option Explicit
 
-' ======== PUBLIC ENTRY POINT ========
+' =========================
+' ENTRY POINT
+' =========================
 Public Sub BuildWishlistSchema()
     On Error GoTo EH
-    Dim db As DAO.Database
-    Set db = CurrentDb
+    Dim db As DAO.Database: Set db = CurrentDb
 
-    ' 1) Core + Ref tables
+    ' 1) Build tables
     Create_RefType db
     Create_RefStatus db
     Create_Requestor db
     Create_Wishlist db
-
-    ' 2) Child tables (5NF-friendly)
     Create_WishVote db
     Create_WishCostYear db
+    Create_WishNote db       ' optional but included
+    Create_Tag db            ' optional but included
+    Create_WishlistTag db    ' optional but included
+    Create_CanonicalMap db   ' optional but included
 
-    ' OPTIONAL extras (uncomment if you want them now)
-    Create_WishNote db
-    Create_Tag db
-    Create_WishlistTag db
-    Create_CanonicalMap db
-    'Create_RefIdType db: Create_WishIdentifier db  ' (identifier pattern)
-
-    ' 3) Relationships (RI on; NO cascade)
+    ' 2) Relationships (RI on; NO cascade update/delete)
     Create_Relationship db, "Wishlist", "RefType", "TypeID", "TypeID", False, False
     Create_Relationship db, "Wishlist", "RefStatus", "StatusID", "StatusID", False, False
     Create_Relationship db, "Wishlist", "Requestor", "RequestorID", "RequestorID", False, False
     Create_Relationship db, "WishVote", "Wishlist", "WishlistID", "WishlistID", False, False
     Create_Relationship db, "WishVote", "Requestor", "VoterID", "RequestorID", False, False
     Create_Relationship db, "WishCostYear", "Wishlist", "WishlistID", "WishlistID", False, False
-
-    ' Optional relations for extras
     Create_Relationship db, "WishNote", "Wishlist", "WishlistID", "WishlistID", False, False
     Create_Relationship db, "WishNote", "Requestor", "AuthorID", "RequestorID", False, False
     Create_Relationship db, "WishlistTag", "Wishlist", "WishlistID", "WishlistID", False, False
     Create_Relationship db, "WishlistTag", "Tag", "TagID", "TagID", False, False
-    Create_Relationship db, "CanonicalMap", "RefType", "CanonicalID", "TypeID", False, False  ' optional; MapType governs which table
-    Create_Relationship db, "CanonicalMap", "RefStatus", "CanonicalID", "StatusID", False, False
+    ' CanonicalMap intentionally not hard-FK’d to multiple parents (MapType governs target)
 
-    ' 4) Seed lookups + Unknown Requestor
+    ' 3) Seed data (Types, Statuses, Unknown Requestor)
     Seed_RefType db
     Seed_RefStatus db
     Seed_Requestor_Unknown db
@@ -51,8 +44,9 @@ EH:
     MsgBox "Build failed: " & Err.Number & " - " & Err.Description, vbCritical
 End Sub
 
-' ======== TABLE BUILDERS ========
-
+' =========================
+' TABLE CREATORS
+' =========================
 Private Sub Create_RefType(db As DAO.Database)
     DropIfExists "RefType"
     Dim td As DAO.TableDef: Set td = db.CreateTableDef("RefType")
@@ -86,21 +80,16 @@ Private Sub Create_Wishlist(db As DAO.Database)
     Dim td As DAO.TableDef: Set td = db.CreateTableDef("Wishlist")
     AddAutoPK td, "WishlistID"
     AddText td, "Name", 255, True
-
-    ' FK: TypeID
     AddLong td, "TypeID", True
 
-    ' URL as hyperlink (dbText + Hyperlink attribute)
     Dim f As DAO.Field
     Set f = td.CreateField("URL", dbText, 255)
     f.Required = True
     f.Attributes = dbHyperlinkField
     td.Fields.Append f
 
-    ' FK: RequestorID
     AddLong td, "RequestorID", True
 
-    ' Cost with default 0 and validation >=0
     Set f = td.CreateField("Cost", dbCurrency)
     f.Required = True
     f.DefaultValue = 0
@@ -108,10 +97,8 @@ Private Sub Create_Wishlist(db As DAO.Database)
     f.ValidationText = "Cost must be zero or positive."
     td.Fields.Append f
 
-    ' FK: StatusID
     AddLong td, "StatusID", True
 
-    ' DateStamp default Now()
     Set f = td.CreateField("DateStamp", dbDate)
     f.Required = True
     f.DefaultValue = "Now()"
@@ -119,7 +106,6 @@ Private Sub Create_Wishlist(db As DAO.Database)
 
     db.TableDefs.Append td
 
-    ' Helpful indexes for filtering
     CreateIndex db, "Wishlist", "IX_Wishlist_TypeID", "TypeID", False
     CreateIndex db, "Wishlist", "IX_Wishlist_StatusID", "StatusID", False
     CreateIndex db, "Wishlist", "IX_Wishlist_RequestorID", "RequestorID", False
@@ -144,8 +130,6 @@ Private Sub Create_WishVote(db As DAO.Database)
     f.DefaultValue = "Now()"
     td.Fields.Append f
     db.TableDefs.Append td
-
-    ' Unique (WishlistID, VoterID)
     CreateCompositeUnique db, "WishVote", "UQ_WishVote_Wishlist_Voter", Array("WishlistID", "VoterID")
     CreateIndex db, "WishVote", "IX_WishVote_WishlistID", "WishlistID", False
 End Sub
@@ -167,13 +151,9 @@ Private Sub Create_WishCostYear(db As DAO.Database)
     f.ValidationText = "Amount must be zero or positive."
     td.Fields.Append f
     db.TableDefs.Append td
-
-    ' Unique (WishlistID, FiscalYear)
     CreateCompositeUnique db, "WishCostYear", "UQ_WCY_Wishlist_FY", Array("WishlistID", "FiscalYear")
     CreateIndex db, "WishCostYear", "IX_WCY_WishlistID", "WishlistID", False
 End Sub
-
-' ---------- OPTIONAL EXTRAS ----------
 
 Private Sub Create_WishNote(db As DAO.Database)
     DropIfExists "WishNote"
@@ -207,7 +187,6 @@ Private Sub Create_WishlistTag(db As DAO.Database)
     Dim td As DAO.TableDef: Set td = db.CreateTableDef("WishlistTag")
     AddLong td, "WishlistID", True
     AddLong td, "TagID", True
-    ' composite PK via index
     db.TableDefs.Append td
     CreateCompositeUnique db, "WishlistTag", "PK_WishlistTag", Array("WishlistID", "TagID")
     CreateIndex db, "WishlistTag", "IX_WishlistTag_WishlistID", "WishlistID", False
@@ -217,9 +196,9 @@ Private Sub Create_CanonicalMap(db As DAO.Database)
     DropIfExists "CanonicalMap"
     Dim td As DAO.TableDef: Set td = db.CreateTableDef("CanonicalMap")
     AddAutoPK td, "MapID"
-    AddText td, "MapType", 30, True      ' 'Type','Status','Tag','Subject', etc.
+    AddText td, "MapType", 30, True
     AddText td, "RawValue", 255, True
-    AddLong td, "CanonicalID", True      ' FK to the appropriate ref table for MapType
+    AddLong td, "CanonicalID", True   ' points into appropriate ref table (governed by MapType)
     Dim f As DAO.Field
     Set f = td.CreateField("CreatedAt", dbDate)
     f.Required = True
@@ -229,14 +208,116 @@ Private Sub Create_CanonicalMap(db As DAO.Database)
     CreateCompositeUnique db, "CanonicalMap", "UQ_CanonicalMap_TypeRaw", Array("MapType", "RawValue")
 End Sub
 
-' ======== RELATIONSHIPS ========
-
+' =========================
+' RELATIONSHIPS
+' =========================
 Private Sub Create_Relationship(db As DAO.Database, _
     ByVal childTable As String, ByVal parentTable As String, _
     ByVal childField As String, ByVal parentField As String, _
     ByVal cascadeUpdate As Boolean, ByVal cascadeDelete As Boolean)
 
     On Error Resume Next
-    ' Drop existing relation if present
     Dim relName As String
-    relName = "FK_" & childTable & "_" & childField & "__" & parentTable & "_" & par_
+    relName = "FK_" & childTable & "_" & childField & "__" & parentTable & "_" & parentField
+    db.Relations.Delete relName
+    On Error GoTo 0
+
+    Dim rel As DAO.Relation: Set rel = db.CreateRelation(relName, parentTable, childTable)
+    If cascadeUpdate Then rel.Attributes = rel.Attributes Or dbRelationUpdateCascade
+    If cascadeDelete Then rel.Attributes = rel.Attributes Or dbRelationDeleteCascade
+    Dim rf As DAO.Field: Set rf = db.CreateField(childField): rf.ForeignName = parentField
+    rel.Fields.Append rf
+    db.Relations.Append rel
+End Sub
+
+' =========================
+' SEEDERS
+' =========================
+Private Sub Seed_RefType(db As DAO.Database)
+    ExecIfMissing db, "RefType", "TypeName", "Package", "INSERT INTO RefType(TypeName) VALUES('Package')"
+    ExecIfMissing db, "RefType", "TypeName", "Database", "INSERT INTO RefType(TypeName) VALUES('Database')"
+    ExecIfMissing db, "RefType", "TypeName", "Journal", "INSERT INTO RefType(TypeName) VALUES('Journal')"
+    ExecIfMissing db, "RefType", "TypeName", "Ebook", "INSERT INTO RefType(TypeName) VALUES('Ebook')"
+    ExecIfMissing db, "RefType", "TypeName", "EbookCollection", "INSERT INTO RefType(TypeName) VALUES('EbookCollection')"
+End Sub
+
+Private Sub Seed_RefStatus(db As DAO.Database)
+    ExecIfMissing db, "RefStatus", "StatusName", "Requested", "INSERT INTO RefStatus(StatusName) VALUES('Requested')"
+    ExecIfMissing db, "RefStatus", "StatusName", "Demoed", "INSERT INTO RefStatus(StatusName) VALUES('Demoed')"
+    ExecIfMissing db, "RefStatus", "StatusName", "Purchased", "INSERT INTO RefStatus(StatusName) VALUES('Purchased')"
+    ExecIfMissing db, "RefStatus", "StatusName", "NotPurchased", "INSERT INTO RefStatus(StatusName) VALUES('NotPurchased')"
+    ExecIfMissing db, "RefStatus", "StatusName", "Deferred", "INSERT INTO RefStatus(StatusName) VALUES('Deferred')"
+End Sub
+
+Private Sub Seed_Requestor_Unknown(db As DAO.Database)
+    ExecIfMissing db, "Requestor", "Email", "unknown@example.org", _
+        "INSERT INTO Requestor(DisplayName, Email) VALUES('Unknown Requestor','unknown@example.org')"
+End Sub
+
+' =========================
+' HELPERS
+' =========================
+Private Sub DropIfExists(ByVal tableName As String)
+    On Error Resume Next
+    CurrentDb.TableDefs.Delete tableName
+    On Error GoTo 0
+End Sub
+
+Private Sub AddAutoPK(td As DAO.TableDef, ByVal name As String)
+    Dim f As DAO.Field: Set f = td.CreateField(name, dbLong)
+    f.Attributes = dbAutoIncrField
+    f.Required = True
+    td.Fields.Append f
+
+    Dim ix As DAO.Index: Set ix = td.CreateIndex("PK_" & td.Name)
+    ix.Primary = True: ix.Unique = True
+    ix.Fields.Append ix.CreateField(name)
+    td.Indexes.Append ix
+End Sub
+
+Private Sub AddText(td As DAO.TableDef, ByVal name As String, ByVal size As Integer, ByVal req As Boolean)
+    Dim f As DAO.Field: Set f = td.CreateField(name, dbText, size)
+    f.Required = req
+    td.Fields.Append f
+End Sub
+
+Private Sub AddLong(td As DAO.TableDef, ByVal name As String, ByVal req As Boolean)
+    Dim f As DAO.Field: Set f = td.CreateField(name, dbLong)
+    f.Required = req
+    td.Fields.Append f
+End Sub
+
+Private Sub CreateUniqueIndex(db As DAO.Database, ByVal tableName As String, ByVal ixName As String, ByVal fieldName As String)
+    Dim tdf As DAO.TableDef: Set tdf = db.TableDefs(tableName)
+    Dim ix As DAO.Index: Set ix = tdf.CreateIndex(ixName)
+    ix.Unique = True
+    ix.Fields.Append ix.CreateField(fieldName)
+    tdf.Indexes.Append ix
+End Sub
+
+Private Sub CreateIndex(db As DAO.Database, ByVal tableName As String, ByVal ixName As String, ByVal fieldName As String, ByVal isUnique As Boolean)
+    Dim tdf As DAO.TableDef: Set tdf = db.TableDefs(tableName)
+    Dim ix As DAO.Index: Set ix = tdf.CreateIndex(ixName)
+    ix.Unique = isUnique
+    ix.Fields.Append ix.CreateField(fieldName)
+    tdf.Indexes.Append ix
+End Sub
+
+Private Sub CreateCompositeUnique(db As DAO.Database, ByVal tableName As String, ByVal ixName As String, ByVal fieldsArr As Variant)
+    Dim tdf As DAO.TableDef: Set tdf = db.TableDefs(tableName)
+    Dim ix As DAO.Index: Set ix = tdf.CreateIndex(ixName)
+    Dim i As Long: ix.Unique = True
+    For i = LBound(fieldsArr) To UBound(fieldsArr)
+        ix.Fields.Append ix.CreateField(CStr(fieldsArr(i)))
+    Next i
+    tdf.Indexes.Append ix
+End Sub
+
+Private Sub ExecIfMissing(db As DAO.Database, ByVal tableName As String, ByVal colName As String, ByVal matchVal As String, ByVal sqlInsert As String)
+    Dim rs As DAO.Recordset
+    Dim q As String
+    q = "SELECT 1 FROM [" & tableName & "] WHERE [" & colName & "]='" & Replace(matchVal, "'", "''") & "'"
+    Set rs = db.OpenRecordset(q, dbOpenSnapshot)
+    If rs.EOF Then db.Execute sqlInsert, dbFailOnError
+    rs.Close
+End Sub
