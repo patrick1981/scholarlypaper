@@ -1,0 +1,242 @@
+Option Compare Database
+Option Explicit
+
+' ======== PUBLIC ENTRY POINT ========
+Public Sub BuildWishlistSchema()
+    On Error GoTo EH
+    Dim db As DAO.Database
+    Set db = CurrentDb
+
+    ' 1) Core + Ref tables
+    Create_RefType db
+    Create_RefStatus db
+    Create_Requestor db
+    Create_Wishlist db
+
+    ' 2) Child tables (5NF-friendly)
+    Create_WishVote db
+    Create_WishCostYear db
+
+    ' OPTIONAL extras (uncomment if you want them now)
+    Create_WishNote db
+    Create_Tag db
+    Create_WishlistTag db
+    Create_CanonicalMap db
+    'Create_RefIdType db: Create_WishIdentifier db  ' (identifier pattern)
+
+    ' 3) Relationships (RI on; NO cascade)
+    Create_Relationship db, "Wishlist", "RefType", "TypeID", "TypeID", False, False
+    Create_Relationship db, "Wishlist", "RefStatus", "StatusID", "StatusID", False, False
+    Create_Relationship db, "Wishlist", "Requestor", "RequestorID", "RequestorID", False, False
+    Create_Relationship db, "WishVote", "Wishlist", "WishlistID", "WishlistID", False, False
+    Create_Relationship db, "WishVote", "Requestor", "VoterID", "RequestorID", False, False
+    Create_Relationship db, "WishCostYear", "Wishlist", "WishlistID", "WishlistID", False, False
+
+    ' Optional relations for extras
+    Create_Relationship db, "WishNote", "Wishlist", "WishlistID", "WishlistID", False, False
+    Create_Relationship db, "WishNote", "Requestor", "AuthorID", "RequestorID", False, False
+    Create_Relationship db, "WishlistTag", "Wishlist", "WishlistID", "WishlistID", False, False
+    Create_Relationship db, "WishlistTag", "Tag", "TagID", "TagID", False, False
+    Create_Relationship db, "CanonicalMap", "RefType", "CanonicalID", "TypeID", False, False  ' optional; MapType governs which table
+    Create_Relationship db, "CanonicalMap", "RefStatus", "CanonicalID", "StatusID", False, False
+
+    ' 4) Seed lookups + Unknown Requestor
+    Seed_RefType db
+    Seed_RefStatus db
+    Seed_Requestor_Unknown db
+
+    MsgBox "Schema build complete ✅", vbInformation
+    Exit Sub
+EH:
+    MsgBox "Build failed: " & Err.Number & " - " & Err.Description, vbCritical
+End Sub
+
+' ======== TABLE BUILDERS ========
+
+Private Sub Create_RefType(db As DAO.Database)
+    DropIfExists "RefType"
+    Dim td As DAO.TableDef: Set td = db.CreateTableDef("RefType")
+    AddAutoPK td, "TypeID"
+    AddText td, "TypeName", 50, True
+    db.TableDefs.Append td
+    CreateUniqueIndex db, "RefType", "UQ_RefType_TypeName", "TypeName"
+End Sub
+
+Private Sub Create_RefStatus(db As DAO.Database)
+    DropIfExists "RefStatus"
+    Dim td As DAO.TableDef: Set td = db.CreateTableDef("RefStatus")
+    AddAutoPK td, "StatusID"
+    AddText td, "StatusName", 50, True
+    db.TableDefs.Append td
+    CreateUniqueIndex db, "RefStatus", "UQ_RefStatus_StatusName", "StatusName"
+End Sub
+
+Private Sub Create_Requestor(db As DAO.Database)
+    DropIfExists "Requestor"
+    Dim td As DAO.TableDef: Set td = db.CreateTableDef("Requestor")
+    AddAutoPK td, "RequestorID"
+    AddText td, "DisplayName", 100, True
+    AddText td, "Email", 255, True
+    db.TableDefs.Append td
+    CreateUniqueIndex db, "Requestor", "UQ_Requestor_Email", "Email"
+End Sub
+
+Private Sub Create_Wishlist(db As DAO.Database)
+    DropIfExists "Wishlist"
+    Dim td As DAO.TableDef: Set td = db.CreateTableDef("Wishlist")
+    AddAutoPK td, "WishlistID"
+    AddText td, "Name", 255, True
+
+    ' FK: TypeID
+    AddLong td, "TypeID", True
+
+    ' URL as hyperlink (dbText + Hyperlink attribute)
+    Dim f As DAO.Field
+    Set f = td.CreateField("URL", dbText, 255)
+    f.Required = True
+    f.Attributes = dbHyperlinkField
+    td.Fields.Append f
+
+    ' FK: RequestorID
+    AddLong td, "RequestorID", True
+
+    ' Cost with default 0 and validation >=0
+    Set f = td.CreateField("Cost", dbCurrency)
+    f.Required = True
+    f.DefaultValue = 0
+    f.ValidationRule = ">=0"
+    f.ValidationText = "Cost must be zero or positive."
+    td.Fields.Append f
+
+    ' FK: StatusID
+    AddLong td, "StatusID", True
+
+    ' DateStamp default Now()
+    Set f = td.CreateField("DateStamp", dbDate)
+    f.Required = True
+    f.DefaultValue = "Now()"
+    td.Fields.Append f
+
+    db.TableDefs.Append td
+
+    ' Helpful indexes for filtering
+    CreateIndex db, "Wishlist", "IX_Wishlist_TypeID", "TypeID", False
+    CreateIndex db, "Wishlist", "IX_Wishlist_StatusID", "StatusID", False
+    CreateIndex db, "Wishlist", "IX_Wishlist_RequestorID", "RequestorID", False
+    CreateIndex db, "Wishlist", "IX_Wishlist_DateStamp", "DateStamp", False
+    CreateIndex db, "Wishlist", "IX_Wishlist_Name", "Name", False
+End Sub
+
+Private Sub Create_WishVote(db As DAO.Database)
+    DropIfExists "WishVote"
+    Dim td As DAO.TableDef: Set td = db.CreateTableDef("WishVote")
+    AddAutoPK td, "VoteID"
+    AddLong td, "WishlistID", True
+    AddLong td, "VoterID", True
+    Dim f As DAO.Field
+    Set f = td.CreateField("Score", dbByte)
+    f.Required = True
+    f.ValidationRule = "Between 1 And 5"
+    f.ValidationText = "Score must be 1..5."
+    td.Fields.Append f
+    Set f = td.CreateField("VotedAt", dbDate)
+    f.Required = True
+    f.DefaultValue = "Now()"
+    td.Fields.Append f
+    db.TableDefs.Append td
+
+    ' Unique (WishlistID, VoterID)
+    CreateCompositeUnique db, "WishVote", "UQ_WishVote_Wishlist_Voter", Array("WishlistID", "VoterID")
+    CreateIndex db, "WishVote", "IX_WishVote_WishlistID", "WishlistID", False
+End Sub
+
+Private Sub Create_WishCostYear(db As DAO.Database)
+    DropIfExists "WishCostYear"
+    Dim td As DAO.TableDef: Set td = db.CreateTableDef("WishCostYear")
+    AddAutoPK td, "WishCostYearID"
+    AddLong td, "WishlistID", True
+    Dim f As DAO.Field
+    Set f = td.CreateField("FiscalYear", dbText, 4)
+    f.Required = True
+    f.ValidationRule = "Like '20??'"
+    f.ValidationText = "Use a 4-digit FY like 2026."
+    td.Fields.Append f
+    Set f = td.CreateField("Amount", dbCurrency)
+    f.Required = True
+    f.ValidationRule = ">=0"
+    f.ValidationText = "Amount must be zero or positive."
+    td.Fields.Append f
+    db.TableDefs.Append td
+
+    ' Unique (WishlistID, FiscalYear)
+    CreateCompositeUnique db, "WishCostYear", "UQ_WCY_Wishlist_FY", Array("WishlistID", "FiscalYear")
+    CreateIndex db, "WishCostYear", "IX_WCY_WishlistID", "WishlistID", False
+End Sub
+
+' ---------- OPTIONAL EXTRAS ----------
+
+Private Sub Create_WishNote(db As DAO.Database)
+    DropIfExists "WishNote"
+    Dim td As DAO.TableDef: Set td = db.CreateTableDef("WishNote")
+    AddAutoPK td, "NoteID"
+    AddLong td, "WishlistID", True
+    AddLong td, "AuthorID", True
+    Dim f As DAO.Field
+    Set f = td.CreateField("NoteText", dbLongText)
+    f.Required = True
+    td.Fields.Append f
+    Set f = td.CreateField("CreatedAt", dbDate)
+    f.Required = True
+    f.DefaultValue = "Now()"
+    td.Fields.Append f
+    db.TableDefs.Append td
+    CreateIndex db, "WishNote", "IX_WishNote_WishlistID", "WishlistID", False
+End Sub
+
+Private Sub Create_Tag(db As DAO.Database)
+    DropIfExists "Tag"
+    Dim td As DAO.TableDef: Set td = db.CreateTableDef("Tag")
+    AddAutoPK td, "TagID"
+    AddText td, "TagName", 100, True
+    db.TableDefs.Append td
+    CreateUniqueIndex db, "Tag", "UQ_Tag_TagName", "TagName"
+End Sub
+
+Private Sub Create_WishlistTag(db As DAO.Database)
+    DropIfExists "WishlistTag"
+    Dim td As DAO.TableDef: Set td = db.CreateTableDef("WishlistTag")
+    AddLong td, "WishlistID", True
+    AddLong td, "TagID", True
+    ' composite PK via index
+    db.TableDefs.Append td
+    CreateCompositeUnique db, "WishlistTag", "PK_WishlistTag", Array("WishlistID", "TagID")
+    CreateIndex db, "WishlistTag", "IX_WishlistTag_WishlistID", "WishlistID", False
+End Sub
+
+Private Sub Create_CanonicalMap(db As DAO.Database)
+    DropIfExists "CanonicalMap"
+    Dim td As DAO.TableDef: Set td = db.CreateTableDef("CanonicalMap")
+    AddAutoPK td, "MapID"
+    AddText td, "MapType", 30, True      ' 'Type','Status','Tag','Subject', etc.
+    AddText td, "RawValue", 255, True
+    AddLong td, "CanonicalID", True      ' FK to the appropriate ref table for MapType
+    Dim f As DAO.Field
+    Set f = td.CreateField("CreatedAt", dbDate)
+    f.Required = True
+    f.DefaultValue = "Now()"
+    td.Fields.Append f
+    db.TableDefs.Append td
+    CreateCompositeUnique db, "CanonicalMap", "UQ_CanonicalMap_TypeRaw", Array("MapType", "RawValue")
+End Sub
+
+' ======== RELATIONSHIPS ========
+
+Private Sub Create_Relationship(db As DAO.Database, _
+    ByVal childTable As String, ByVal parentTable As String, _
+    ByVal childField As String, ByVal parentField As String, _
+    ByVal cascadeUpdate As Boolean, ByVal cascadeDelete As Boolean)
+
+    On Error Resume Next
+    ' Drop existing relation if present
+    Dim relName As String
+    relName = "FK_" & childTable & "_" & childField & "__" & parentTable & "_" & par_
