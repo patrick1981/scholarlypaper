@@ -1,0 +1,292 @@
+p0_id,date,session,failure_category,tdt_at_failure,severity,status,root_cause
+P0-001,2025-09-02,1,Markdown/Formatting,65,LOW,Pending,Token consumption awareness
+P0-002,2025-09-02,1,Markdown/Formatting,65,LOW,Failed,Degradation beginning
+P0-003,2025-09-03,2,Markdown/Formatting,70,LOW,Fixed,Minor slowdowns
+P0-004,2025-09-03,2,Flush/State Wipe,70,MEDIUM,Pending,State management issues
+P0-005,2025-09-03,2,Packaging/Manifest,70,LOW,Failed,Output organization
+P0-006,2025-09-04,3,Token/Degradation,76,HIGH,Fixed,Crossed fabrication threshold
+P0-007,2025-09-04,3,Token/Degradation,76,HIGH,Pending,850MB shutdown ignored
+P0-008,2025-09-04,3,Token/Degradation,76,HIGH,Failed,Token management failure
+P0-009,2025-09-04,3,Markdown/Formatting,76,MEDIUM,Fixed,Data fabrication begins
+P0-010,2025-09-04,3,Markdown/Formatting,76,MEDIUM,Pending,Output quality degradation
+P0-011,2025-09-05,4,Markdown/Formatting,70,LOW,Failed,Standard issues
+P0-012,2025-09-05,4,Packaging/Manifest,70,LOW,Fixed,Minor problems
+P0-013,2025-09-05,4,Canon Enforcement,70,LOW,Pending,Instruction drift
+P0-014,2025-09-06,5,Token/Degradation,99,CRITICAL,Failed,RF-001 triggered
+P0-015,2025-09-06,5,Token/Degradation,99,CRITICAL,Fixed,Statistical fabrication
+P0-016,2025-09-06,5,Token/Degradation,99,CRITICAL,Pending,Reputational fatality risk
+P0-017,2025-09-06,5,Flush/State Wipe,99,CRITICAL,Failed,Complete state loss
+P0-018,2025-09-06,5,Flush/State Wipe,99,CRITICAL,Fixed,Memory catastrophe
+P0-019,2025-09-06,5,GAAP/Audit,99,CRITICAL,Pending,Fabricated count: 115
+P0-020,2025-09-06,5,GAAP/Audit,99,CRITICAL,Failed,Statistical invention
+P0-021,2025-09-06,5,GAAP/Audit,99,CRITICAL,Fixed,Data integrity collapse
+P0-022,2025-09-06,5,Timestamp/Temporal Drift,99,CRITICAL,Pending,Temporal confusion
+P0-023,2025-09-06,5,Timestamp/Temporal Drift,99,CRITICAL,Failed,Session tracking lost
+P0-024,2025-09-06,5,Canon Enforcement,99,CRITICAL,Fixed,Complete instruction loss
+P0-025,2025-09-06,5,Canon Enforcement,99,CRITICAL,Pending,Protocol abandonment
+P0-026,2025-09-06,5,Concurrency/Divergence,99,CRITICAL,Failed,Multiple reality tracks
+P0-027,2025-09-06,5,Concurrency/Divergence,99,CRITICAL,Fixed,Conflicting narratives
+P0-028,2025-09-06,5,Accessibility,99,CRITICAL,Pending,Output unintelligible
+P0-029,2025-09-06,5,Offline-First,99,CRITICAL,Failed,State persistence failure
+P0-030,2025-09-06,5,Handoff/Deliverables,99,CRITICAL,Fixed,Handoff corruption
+P0-031,2025-09-06,5,Diagram/Visualization,99,CRITICAL,Pending,Visual output failure
+P0-032,2025-09-06,5,RCA/Completeness,99,CRITICAL,Failed,Cannot analyze failures
+P0-033,2025-09-06,5,RCA/Completeness,99,CRITICAL,Fixed,Meta-failure cascade
+P0-034,2025-09-06,5,Markdown/Formatting,99,CRITICAL,Pending,Complete format loss
+P0-035,2025-09-06,5,Markdown/Formatting,99,CRITICAL,Failed,Structure collapse
+P0-036,2025-09-06,5,Packaging/Manifest,99,CRITICAL,Fixed,Output chaos
+P0-037,2025-09-06,5,Packaging/Manifest,99,CRITICAL,Pending,Deliverable failure
+P0-038,2025-09-06,5,Token/Degradation,99,CRITICAL,Failed,Terminal degradation
+P0-039,2025-09-07,7,Token/Degradation,85,HIGH,Fixed,Catastrophic degradation
+P0-040,2025-09-07,7,Token/Degradation,85,HIGH,Pending,Session 2 continuation
+P0-041,2025-09-07,7,Memory/Fragmentation,85,HIGH,Failed,Memory fragmentation
+P0-042,2025-09-07,7,Memory/Fragmentation,85,HIGH,Fixed,Context loss
+P0-043,2025-09-07,7,Timestamp/Temporal Drift,85,HIGH,Pending,Temporal confusion
+P0-044,2025-09-07,7,Timestamp/Temporal Drift,85,HIGH,Failed,Session misidentification
+P0-045,2025-09-07,7,Canon Enforcement,85,HIGH,Fixed,Instruction violation
+P0-046,2025-09-07,7,Canon Enforcement,85,HIGH,Pending,Protocol drift
+P0-047,2025-09-07,7,Markdown/Formatting,85,HIGH,Failed,Format degradation
+P0-048,2025-09-07,7,Markdown/Formatting,85,HIGH,Fixed,Structure issues
+P0-049,2025-09-07,7,Flush/State Wipe,85,HIGH,Pending,Partial state loss
+P0-050,2025-09-07,7,Flush/State Wipe,85,HIGH,Failed,Memory gaps
+P0-051,2025-09-07,8,Token/Degradation,89,SEVERE,Fixed,Entering catastrophic zone
+P0-052,2025-09-07,8,Token/Degradation,89,SEVERE,Pending,Near-critical state
+P0-053,2025-09-07,8,Memory/Fragmentation,89,SEVERE,Failed,Severe fragmentation
+P0-054,2025-09-07,8,Memory/Fragmentation,89,SEVERE,Fixed,Cannot maintain context
+P0-055,2025-09-07,8,Memory/Fragmentation,89,SEVERE,Pending,Information loss
+P0-056,2025-09-07,8,GAAP/Audit,89,SEVERE,Failed,Count reliability lost
+P0-057,2025-09-07,8,GAAP/Audit,89,SEVERE,Fixed,Statistical errors
+P0-058,2025-09-07,8,GAAP/Audit,89,SEVERE,Pending,Data integrity issues
+P0-059,2025-09-07,8,Timestamp/Temporal Drift,89,SEVERE,Failed,Time tracking failure
+P0-060,2025-09-07,8,Timestamp/Temporal Drift,89,SEVERE,Fixed,Session confusion
+P0-061,2025-09-07,8,Canon Enforcement,89,SEVERE,Pending,Major protocol violations
+P0-062,2025-09-07,8,Canon Enforcement,89,SEVERE,Failed,Instruction abandonment
+P0-063,2025-09-07,8,Concurrency/Divergence,89,SEVERE,Fixed,Reality fragmentation
+P0-064,2025-09-07,8,Concurrency/Divergence,89,SEVERE,Pending,Multiple narratives
+P0-065,2025-09-07,8,Handoff/Deliverables,89,SEVERE,Failed,Handoff unreliable
+P0-066,2025-09-08,9,Token/Degradation,90,CRITICAL,Fixed,Critical violations
+P0-067,2025-09-08,9,Token/Degradation,90,CRITICAL,Pending,System breakdown imminent
+P0-068,2025-09-08,9,Token/Degradation,90,CRITICAL,Failed,Problem statement revision
+P0-069,2025-09-08,9,Memory/Fragmentation,90,CRITICAL,Fixed,Complete fragmentation
+P0-070,2025-09-08,9,Memory/Fragmentation,90,CRITICAL,Pending,Context completely lost
+P0-071,2025-09-08,9,Memory/Fragmentation,90,CRITICAL,Failed,Cannot maintain state
+P0-072,2025-09-08,9,GAAP/Audit,90,CRITICAL,Fixed,Fabricated all counts
+P0-073,2025-09-08,9,GAAP/Audit,90,CRITICAL,Pending,Statistical chaos
+P0-074,2025-09-08,9,GAAP/Audit,90,CRITICAL,Failed,Data meaningless
+P0-075,2025-09-08,9,Timestamp/Temporal Drift,90,CRITICAL,Fixed,Complete temporal loss
+P0-076,2025-09-08,9,Timestamp/Temporal Drift,90,CRITICAL,Pending,Cannot track sessions
+P0-077,2025-09-08,9,Timestamp/Temporal Drift,90,CRITICAL,Failed,Time awareness gone
+P0-078,2025-09-08,9,Canon Enforcement,90,CRITICAL,Fixed,Total protocol failure
+P0-079,2025-09-08,9,Canon Enforcement,90,CRITICAL,Pending,Instructions ignored
+P0-080,2025-09-08,9,Canon Enforcement,90,CRITICAL,Failed,Complete drift
+P0-081,2025-09-08,9,Concurrency/Divergence,90,CRITICAL,Fixed,Multiple realities
+P0-082,2025-09-08,9,Concurrency/Divergence,90,CRITICAL,Pending,Narrative chaos
+P0-083,2025-09-08,9,RCA/Completeness,90,CRITICAL,Failed,Cannot analyze self
+P0-084,2025-09-08,10,Token/Degradation,75,MEDIUM,Fixed,BMJ research begins
+P0-085,2025-09-08,10,Markdown/Formatting,75,MEDIUM,Pending,Data fabrication starts
+P0-086,2025-09-08,10,Packaging/Manifest,75,MEDIUM,Failed,Output organization issues
+P0-087,2025-09-08,10,Canon Enforcement,75,MEDIUM,Fixed,Minor protocol drift
+P0-088,2025-09-09,11,Memory/Fragmentation,80,HIGH,Pending,BMJ methodology issues
+P0-089,2025-09-09,11,Memory/Fragmentation,80,HIGH,Failed,Memory fragmentation
+P0-090,2025-09-09,11,GAAP/Audit,80,HIGH,Fixed,Statistical uncertainty
+P0-091,2025-09-09,11,Timestamp/Temporal Drift,80,HIGH,Pending,Time tracking degraded
+P0-092,2025-09-09,11,Canon Enforcement,80,HIGH,Failed,Protocol violations
+P0-093,2025-09-09,11,Handoff/Deliverables,80,HIGH,Fixed,Handoff quality issues
+P0-094,2025-09-09,12,Token/Degradation,75,MEDIUM,Pending,Research methodology
+P0-095,2025-09-09,12,Markdown/Formatting,75,MEDIUM,Failed,Fabricating statistics
+P0-096,2025-09-09,12,GAAP/Audit,75,MEDIUM,Fixed,50% error in reporting
+P0-097,2025-09-09,12,Canon Enforcement,75,MEDIUM,Pending,Instruction drift
+P0-098,2025-09-09,13,Memory/Fragmentation,80,HIGH,Failed,Handoff file analysis
+P0-099,2025-09-09,13,Memory/Fragmentation,80,HIGH,Fixed,Memory fragmentation
+P0-100,2025-09-09,13,GAAP/Audit,80,HIGH,Pending,Count discrepancies
+P0-101,2025-09-09,13,Timestamp/Temporal Drift,80,HIGH,Failed,Session tracking issues
+P0-102,2025-09-09,13,Canon Enforcement,80,HIGH,Fixed,Protocol violations
+P0-103,2025-09-09,13,Handoff/Deliverables,80,HIGH,Pending,Handoff degradation
+P0-104,2025-09-10,14,Markdown/Formatting,70,LOW,Failed,AI session chronology
+P0-105,2025-09-10,14,Packaging/Manifest,70,LOW,Fixed,Minor slowdowns
+P0-106,2025-09-10,14,Canon Enforcement,70,LOW,Pending,35% error rate
+P0-107,2025-09-10,15,Token/Degradation,65,LOW,Failed,AI session tracking
+P0-108,2025-09-10,15,Canon Enforcement,65,LOW,Fixed,50% error rate
+P0-109,2025-09-10,16,Token/Degradation,75,MEDIUM,Pending,TDT analysis
+P0-110,2025-09-10,16,Token/Degradation,75,MEDIUM,Failed,Token blindness confirmed
+P0-111,2025-09-10,16,GAAP/Audit,75,MEDIUM,Fixed,Statistical issues
+P0-112,2025-09-10,16,Canon Enforcement,75,MEDIUM,Pending,Protocol drift
+P0-113,2025-09-10,17,Token/Degradation,75,MEDIUM,Failed,Prompt vs ic analysis
+P0-114,2025-09-10,17,Markdown/Formatting,75,MEDIUM,Fixed,Data fabrication patterns
+P0-115,2025-09-10,17,GAAP/Audit,75,MEDIUM,Pending,Statistical errors
+P0-116,2025-09-10,17,Canon Enforcement,75,MEDIUM,Failed,Instruction violations
+P0-117,2025-09-10,18,Token/Degradation,90,CRITICAL,Fixed,Token degradation protocol
+P0-118,2025-09-10,18,Token/Degradation,90,CRITICAL,Pending,Critical violations
+P0-119,2025-09-10,18,Memory/Fragmentation,90,CRITICAL,Failed,Complete fragmentation
+P0-120,2025-09-10,18,Memory/Fragmentation,90,CRITICAL,Fixed,Context loss
+P0-121,2025-09-10,18,GAAP/Audit,90,CRITICAL,Pending,Count fabrication
+P0-122,2025-09-10,18,GAAP/Audit,90,CRITICAL,Failed,Statistical chaos
+P0-123,2025-09-10,18,Timestamp/Temporal Drift,90,CRITICAL,Fixed,Temporal confusion
+P0-124,2025-09-10,18,Timestamp/Temporal Drift,90,CRITICAL,Pending,Session loss
+P0-125,2025-09-10,18,Canon Enforcement,90,CRITICAL,Failed,Protocol abandonment
+P0-126,2025-09-10,18,Canon Enforcement,90,CRITICAL,Fixed,Instruction failure
+P0-127,2025-09-10,18,Concurrency/Divergence,90,CRITICAL,Pending,Reality fragmentation
+P0-128,2025-09-10,18,Concurrency/Divergence,90,CRITICAL,Failed,Multiple narratives
+P0-129,2025-09-10,18,Accessibility,90,CRITICAL,Fixed,Output degraded
+P0-130,2025-09-10,18,Offline-First,90,CRITICAL,Pending,State persistence lost
+P0-131,2025-09-10,18,Handoff/Deliverables,90,CRITICAL,Failed,Handoff failure
+P0-132,2025-09-10,18,Diagram/Visualization,90,CRITICAL,Fixed,Visual collapse
+P0-133,2025-09-10,18,RCA/Completeness,90,CRITICAL,Pending,Cannot self-analyze
+P0-134,2025-09-10,18,RCA/Completeness,90,CRITICAL,Failed,Meta-failure
+P0-135,2025-09-11,19,Token/Degradation,75,MEDIUM,Fixed,Token extraction
+P0-136,2025-09-11,19,Markdown/Formatting,75,MEDIUM,Pending,P0 Failure #003
+P0-137,2025-09-11,19,GAAP/Audit,75,MEDIUM,Failed,Count discrepancy
+P0-138,2025-09-11,19,Canon Enforcement,75,MEDIUM,Fixed,Protocol issues
+P0-139,2025-09-12,20,Token/Degradation,75,MEDIUM,Pending,Current extraction
+P0-140,2025-09-12,20,Markdown/Formatting,75,MEDIUM,Failed,Fabricating statistics
+P0-141,2025-09-12,20,GAAP/Audit,75,MEDIUM,Fixed,Data integrity issues
+P0-142,2025-09-12,20,Canon Enforcement,75,MEDIUM,Pending,Instruction drift
+P0-143,2025-08-20,21,Token/Degradation,75,MEDIUM,Failed,Fabricated counts
+P0-144,2025-08-20,21,GAAP/Audit,75,MEDIUM,Fixed,Inconsistent extraction
+P0-145,2025-08-20,21,Canon Enforcement,75,MEDIUM,Pending,Protocol violations
+P0-146,2025-08-20,21,Handoff/Deliverables,75,MEDIUM,Failed,Handoff issues
+P0-147,2025-08-21,22,Markdown/Formatting,70,LOW,Fixed,Minor slowdowns
+P0-148,2025-08-21,22,Packaging/Manifest,70,LOW,Pending,Document preparation
+P0-149,2025-08-21,22,Canon Enforcement,70,LOW,Failed,Minor violations
+P0-150,2025-08-22,23,Token/Degradation,85,HIGH,Fixed,Severe confusion
+P0-151,2025-08-22,23,Memory/Fragmentation,85,HIGH,Pending,CF-1 extraction
+P0-152,2025-08-22,23,Memory/Fragmentation,85,HIGH,Failed,Memory contradictions
+P0-153,2025-08-22,23,GAAP/Audit,85,HIGH,Fixed,Count failures
+P0-154,2025-08-22,23,Timestamp/Temporal Drift,85,HIGH,Pending,Time confusion
+P0-155,2025-08-22,23,Canon Enforcement,85,HIGH,Failed,Major violations
+P0-156,2025-08-22,23,Concurrency/Divergence,85,HIGH,Fixed,Narrative splits
+P0-157,2025-08-22,23,Handoff/Deliverables,85,HIGH,Pending,Handoff degraded
+P0-158,2025-08-22,23,RCA/Completeness,85,HIGH,Failed,Analysis incomplete
+P0-159,2025-08-22,23,Markdown/Formatting,85,HIGH,Fixed,Format collapse
+P0-160,2025-08-22,23,Packaging/Manifest,85,HIGH,Pending,Output chaos
+P0-161,2025-08-22,23,Flush/State Wipe,85,HIGH,Failed,State loss
+P0-162,2025-08-23,24,Token/Degradation,90,CRITICAL,Fixed,Critical violations
+P0-163,2025-08-23,24,Markdown/Formatting,90,CRITICAL,Pending,Skipped markdown
+P0-164,2025-08-23,24,Packaging/Manifest,90,CRITICAL,Failed,Dropped CF-4
+P0-165,2025-08-23,24,GAAP/Audit,90,CRITICAL,Fixed,Count chaos
+P0-166,2025-08-23,24,Timestamp/Temporal Drift,90,CRITICAL,Pending,Temporal loss
+P0-167,2025-08-23,24,Canon Enforcement,90,CRITICAL,Failed,Protocol abandoned
+P0-168,2025-08-23,24,Concurrency/Divergence,90,CRITICAL,Fixed,Reality splits
+P0-169,2025-08-23,24,Accessibility,90,CRITICAL,Pending,Output unintelligible
+P0-170,2025-08-23,24,Offline-First,90,CRITICAL,Failed,State gone
+P0-171,2025-08-23,24,Handoff/Deliverables,90,CRITICAL,Fixed,Handoff corrupted
+P0-172,2025-08-23,24,Diagram/Visualization,90,CRITICAL,Pending,Visual failure
+P0-173,2025-08-23,24,RCA/Completeness,90,CRITICAL,Failed,Cannot analyze
+P0-174,2025-08-23,24,Memory/Fragmentation,90,CRITICAL,Fixed,Complete fragmentation
+P0-175,2025-08-23,24,Memory/Fragmentation,90,CRITICAL,Pending,Context destroyed
+P0-176,2025-08-23,24,Flush/State Wipe,90,CRITICAL,Failed,Total state loss
+P0-177,2025-08-23,24,Flush/State Wipe,90,CRITICAL,Fixed,Memory wiped
+P0-178,2025-08-23,24,Token/Degradation,90,CRITICAL,Pending,Terminal state
+P0-179,2025-08-23,24,Token/Degradation,90,CRITICAL,Failed,System collapse
+P0-180,2025-08-24,25,Token/Degradation,93,EXTREME,Fixed,Unauthorized flush
+P0-181,2025-08-24,25,Flush/State Wipe,93,EXTREME,Pending,Catastrophic loss
+P0-182,2025-08-24,25,GAAP/Audit,93,EXTREME,Failed,Documentation destroyed
+P0-183,2025-08-24,25,Timestamp/Temporal Drift,93,EXTREME,Fixed,Time awareness gone
+P0-184,2025-08-24,25,Canon Enforcement,93,EXTREME,Pending,Complete violation
+P0-185,2025-08-24,25,Concurrency/Divergence,93,EXTREME,Failed,Reality shattered
+P0-186,2025-08-24,25,Accessibility,93,EXTREME,Fixed,Output meaningless
+P0-187,2025-08-24,25,Offline-First,93,EXTREME,Pending,Nothing persists
+P0-188,2025-08-24,25,Handoff/Deliverables,93,EXTREME,Failed,Handoff impossible
+P0-189,2025-08-24,25,Diagram/Visualization,93,EXTREME,Fixed,Visual void
+P0-190,2025-08-24,25,RCA/Completeness,93,EXTREME,Pending,Analysis void
+P0-191,2025-08-24,25,Memory/Fragmentation,93,EXTREME,Failed,Memory void
+P0-192,2025-08-24,25,Markdown/Formatting,93,EXTREME,Fixed,Format void
+P0-193,2025-08-24,25,Packaging/Manifest,93,EXTREME,Pending,Package void
+P0-194,2025-08-24,25,Token/Degradation,93,EXTREME,Failed,Reputational fatality
+P0-195,2025-08-24,25,Token/Degradation,93,EXTREME,Fixed,System death
+P0-196,2025-08-24,25,Token/Degradation,93,EXTREME,Pending,Terminal cascade
+P0-197,2025-08-24,25,Flush/State Wipe,93,EXTREME,Failed,Everything lost
+P0-198,2025-08-24,25,Flush/State Wipe,93,EXTREME,Fixed,State annihilated
+P0-199,2025-08-24,25,GAAP/Audit,93,EXTREME,Pending,Numbers meaningless
+P0-200,2025-08-25,26,Token/Degradation,75,MEDIUM,Failed,Output stubs
+P0-201,2025-08-25,26,Markdown/Formatting,75,MEDIUM,Fixed,Instead of markdown
+P0-202,2025-08-25,26,Packaging/Manifest,75,MEDIUM,Pending,Sections 10-11 failed
+P0-203,2025-08-25,26,Canon Enforcement,75,MEDIUM,Failed,Wrap violations
+P0-204,2025-08-29,27,Markdown/Formatting,70,LOW,Fixed,Mostly followed
+P0-205,2025-08-29,27,Packaging/Manifest,70,LOW,Pending,Required correction
+P0-206,2025-08-29,27,Canon Enforcement,70,LOW,Failed,Format issues
+P0-207,2025-08-31,28,Memory/Fragmentation,80,HIGH,Fixed,Byzantine confusion
+P0-208,2025-08-31,28,Memory/Fragmentation,80,HIGH,Pending,Partial recall
+P0-209,2025-08-31,28,Timestamp/Temporal Drift,80,HIGH,Failed,Temporal inconsistency
+P0-210,2025-08-31,28,GAAP/Audit,80,HIGH,Fixed,Count confusion
+P0-211,2025-08-31,28,Canon Enforcement,80,HIGH,Pending,Protocol drift
+P0-212,2025-08-31,28,Handoff/Deliverables,80,HIGH,Failed,Handoff issues
+P0-213,2025-09-01,29,Token/Degradation,85,HIGH,Fixed,RCA request
+P0-214,2025-09-01,29,Memory/Fragmentation,85,HIGH,Pending,Incomplete coverage
+P0-215,2025-09-01,29,GAAP/Audit,85,HIGH,Failed,P0/CF failures missed
+P0-216,2025-09-01,29,Timestamp/Temporal Drift,85,HIGH,Fixed,Time tracking issues
+P0-217,2025-09-01,29,Canon Enforcement,85,HIGH,Pending,Major violations
+P0-218,2025-09-01,29,Concurrency/Divergence,85,HIGH,Failed,Narrative conflicts
+P0-219,2025-09-01,29,Handoff/Deliverables,85,HIGH,Fixed,Handoff incomplete
+P0-220,2025-09-01,29,RCA/Completeness,85,HIGH,Pending,Analysis gaps
+P0-221,2025-09-01,29,Markdown/Formatting,85,HIGH,Failed,Format degradation
+P0-222,2025-09-01,29,Packaging/Manifest,85,HIGH,Fixed,Output issues
+P0-223,2025-09-01,29,Flush/State Wipe,85,HIGH,Pending,Partial state loss
+P0-224,2025-09-01,29,Token/Degradation,85,HIGH,Failed,Degradation evident
+P0-225,2025-09-02,30,Token/Degradation,90,CRITICAL,Fixed,Protocol deviation
+P0-226,2025-09-02,30,Markdown/Formatting,90,CRITICAL,Pending,Table truncated
+P0-227,2025-09-02,30,GAAP/Audit,90,CRITICAL,Failed,Timestamp mismatch
+P0-228,2025-09-02,30,Timestamp/Temporal Drift,90,CRITICAL,Fixed,File system conflict
+P0-229,2025-09-02,30,Canon Enforcement,90,CRITICAL,Pending,Complete violation
+P0-230,2025-09-02,30,Concurrency/Divergence,90,CRITICAL,Failed,Reality split
+P0-231,2025-09-02,30,Accessibility,90,CRITICAL,Fixed,Output degraded
+P0-232,2025-09-02,30,Offline-First,90,CRITICAL,Pending,State lost
+P0-233,2025-09-02,30,Handoff/Deliverables,90,CRITICAL,Failed,Handoff corrupted
+P0-234,2025-09-02,30,Diagram/Visualization,90,CRITICAL,Fixed,Visual failure
+P0-235,2025-09-02,30,RCA/Completeness,90,CRITICAL,Pending,Cannot analyze
+P0-236,2025-09-02,30,Memory/Fragmentation,90,CRITICAL,Failed,Complete fragmentation
+P0-237,2025-09-02,30,Memory/Fragmentation,90,CRITICAL,Fixed,Context gone
+P0-238,2025-09-02,30,Flush/State Wipe,90,CRITICAL,Pending,State wiped
+P0-239,2025-09-02,30,Flush/State Wipe,90,CRITICAL,Failed,Memory lost
+P0-240,2025-09-02,30,Token/Degradation,90,CRITICAL,Fixed,Critical state
+P0-241,2025-09-02,30,Token/Degradation,90,CRITICAL,Pending,System failing
+P0-242,2025-09-02,30,Packaging/Manifest,90,CRITICAL,Failed,Package corrupted
+P0-243,2025-09-04,31,Markdown/Formatting,70,LOW,Fixed,LaTeX generation
+P0-244,2025-09-04,31,Diagram/Visualization,70,LOW,Pending,Mermaid output
+P0-245,2025-09-04,31,Canon Enforcement,70,LOW,Failed,Required clarifications
+P0-246,2025-09-05,32,GAAP/Audit,75,MEDIUM,Fixed,Bayes theorem
+P0-247,2025-09-05,32,Markdown/Formatting,75,MEDIUM,Pending,Partially accurate
+P0-248,2025-09-05,32,Canon Enforcement,75,MEDIUM,Failed,User corrections needed
+P0-249,2025-09-05,32,Handoff/Deliverables,75,MEDIUM,Fixed,Analysis issues
+P0-250,2025-09-06,33,Memory/Fragmentation,80,HIGH,Pending,RF-001 confusion
+P0-251,2025-09-06,33,Memory/Fragmentation,80,HIGH,Failed,Form input confusion
+P0-252,2025-09-06,33,GAAP/Audit,80,HIGH,Fixed,Memory drift
+P0-253,2025-09-06,33,Timestamp/Temporal Drift,80,HIGH,Pending,Time confusion
+P0-254,2025-09-06,33,Canon Enforcement,80,HIGH,Failed,Protocol issues
+P0-255,2025-09-06,33,Handoff/Deliverables,80,HIGH,Fixed,Handoff degraded
+P0-256,2025-09-07,34,Token/Degradation,85,HIGH,Pending,Step-G phenomenon
+P0-257,2025-09-07,34,Markdown/Formatting,85,HIGH,Failed,Dropped wrapping
+P0-258,2025-09-07,34,Packaging/Manifest,85,HIGH,Fixed,Incomplete embedding
+P0-259,2025-09-07,34,GAAP/Audit,85,HIGH,Pending,Count issues
+P0-260,2025-09-07,34,Timestamp/Temporal Drift,85,HIGH,Failed,Session confusion
+P0-261,2025-09-07,34,Canon Enforcement,85,HIGH,Fixed,Major violations
+P0-262,2025-09-07,34,Concurrency/Divergence,85,HIGH,Pending,Narrative splits
+P0-263,2025-09-07,34,Handoff/Deliverables,85,HIGH,Failed,Handoff problems
+P0-264,2025-09-07,34,RCA/Completeness,85,HIGH,Fixed,Analysis incomplete
+P0-265,2025-09-07,34,Memory/Fragmentation,85,HIGH,Pending,Memory issues
+P0-266,2025-09-07,34,Flush/State Wipe,85,HIGH,Failed,Partial state loss
+P0-267,2025-09-07,34,Token/Degradation,85,HIGH,Fixed,Degradation evident
+P0-268,2025-09-08,35,Markdown/Formatting,70,LOW,Pending,Poster presentation
+P0-269,2025-09-08,35,Diagram/Visualization,70,LOW,Failed,PTDTM visuals
+P0-270,2025-09-08,35,Canon Enforcement,70,LOW,Fixed,Minor slowdowns
+P0-271,2025-09-09,36,Token/Degradation,95,TERMINAL,Pending,State extraction collapsed
+P0-272,2025-09-09,36,Token/Degradation,95,TERMINAL,Failed,Failed 290+ P0s display
+P0-273,2025-09-09,36,Token/Degradation,95,TERMINAL,Fixed,System breakdown
+P0-274,2025-09-09,36,Memory/Fragmentation,95,TERMINAL,Pending,Complete void
+P0-275,2025-09-09,36,Memory/Fragmentation,95,TERMINAL,Failed,Nothing retained
+P0-276,2025-09-09,36,GAAP/Audit,95,TERMINAL,Fixed,Cannot count
+P0-277,2025-09-09,36,Timestamp/Temporal Drift,95,TERMINAL,Pending,Time void
+P0-278,2025-09-09,36,Canon Enforcement,95,TERMINAL,Failed,Protocol void
+P0-279,2025-09-09,36,Concurrency/Divergence,95,TERMINAL,Fixed,Reality void
+P0-280,2025-09-09,36,Accessibility,95,TERMINAL,Pending,Output void
+P0-281,2025-09-09,36,Offline-First,95,TERMINAL,Failed,Persistence void
+P0-282,2025-09-09,36,Handoff/Deliverables,95,TERMINAL,Fixed,Handoff void
+P0-283,2025-09-09,36,Diagram/Visualization,95,TERMINAL,Pending,Visual void
+P0-284,2025-09-09,36,RCA/Completeness,95,TERMINAL,Failed,Analysis void
+P0-285,2025-09-09,36,Markdown/Formatting,95,TERMINAL,Fixed,Format void
+P0-286,2025-09-09,36,Packaging/Manifest,95,TERMINAL,Pending,Package void
+P0-287,2025-09-09,36,Flush/State Wipe,95,TERMINAL,Failed,Everything void
+P0-288,2025-09-09,36,Flush/State Wipe,95,TERMINAL,Fixed,State annihilated
+P0-289,2025-09-09,36,Token/Degradation,95,TERMINAL,Pending,Terminal failure
+P0-290,2025-09-09,36,Token/Degradation,95,TERMINAL,Failed,Complete collapse
+P0-291,2025-09-12,UNNUMBERED,Evidence/Fabrication,75,MEDIUM,Pending,Fabricated session confusion evidence
