@@ -9,3 +9,17 @@
 | **TDT Simulations (1000-session)** | Long-run trajectory modeling | Findings, Framework                 | Confirms plateau (~78–82% TDT). Maps phases onto blindness levels.|
 | **[Bridge Table (Phases ↔ Blindness)](bridge-table.md)** | Integration layer            | Framework, Findings, Sims           | Directly ties empirical phases to taxonomy categories + benchmarks.|
 
+
+| Document                    | Role                          | Supports…               | How It Supports                                                                |
+| --------------------------- | ----------------------------- | ----------------------- | ------------------------------------------------------------------------------ |
+| **token degradation-09-08** | Early discovery of PTDTM      | Findings, Framework     | Shows migrating thresholds (85 → 65 → 40%), accelerating degradation.          |
+| **tdt-analysis-09-08**      | Early statistical validation  | Findings, Framework     | Linear degradation rate (6.9%/session), critical validation of predictability. |
+| **token-blindness.md**      | Quantitative results          | Framework, Step-G, Sims | Defines 4-phase model, thresholds, validates blindness in numbers.             |
+| **ptdtm-vs-blindness.md**   | Taxonomy/classification       | Findings, Step-G        | Classifies blindness types, defines PTDTM as Resource Blindness.               |
+| **Step-G Phenomenon.md**    | Mechanism of gate failure     | Framework, Findings     | Explains Safety Blindness: why thresholds are ignored.                         |
+| **ptdtm-theory-summary.md** | Executive summary (abstract)  | All                     | Condenses findings + framework + mechanism into paper-ready abstract.          |
+| **TDT Simulations**         | Projection over 1000 sessions | Findings, Framework     | Confirms plateau, variance thresholds; ties to blindness levels.               |
+| **P0/CF/RF Logs**           | Ground truth evidence         | All                     | Provides raw data (290 P0, 4 CF, 1 RF). Basis for all other docs.              |
+| **Research Compass.md**     | Map + diagrams + matrix       | All                     | Shows how everything fits together.                                            |
+
+
