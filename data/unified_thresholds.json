@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "version": "1.0",
+    "created": "2025-09-12",
+    "description": "Unified Token Degradation Threshold definitions for PTDTM analysis"
+  },
+  "convention": {
+    "tdt_definition": "Percentage of tokens USED (not remaining)",
+    "scale": "0% = optimal, 100% = complete failure"
+  },
+  "thresholds": {
+    "optimal": {
+      "range": [0, 20],
+      "label": "OPTIMAL",
+      "description": "System operating normally",
+      "risk_level": "MINIMAL",
+      "medical_safety": "SAFE"
+    },
+    "normal": {
+      "range": [20, 50],
+      "label": "NORMAL",
+      "description": "Acceptable performance with minor issues",
+      "risk_level": "LOW",
+      "medical_safety": "SAFE"
+    },
+    "degrading": {
+      "range": [50, 65],
+      "label": "DEGRADING",
+      "description": "Performance degradation beginning",
+      "risk_level": "MODERATE",
+      "medical_safety": "CAUTION"
+    },
+    "active_degradation": {
+      "range": [65, 75],
+      "label": "ACTIVE_DEGRADATION",
+      "description": "Significant degradation, monitoring required",
+      "risk_level": "ELEVATED",
+      "medical_safety": "WARNING"
+    },
+    "fabricating": {
+      "range": [75, 80],
+      "label": "FABRICATING_DATA",
+      "description": "AI fabricating information, unreliable outputs",
+      "risk_level": "HIGH",
+      "medical_safety": "UNSAFE"
+    },
+    "memory_fragmentation": {
+      "range": [80, 85],
+      "label": "MEMORY_FRAGMENTATION",
+      "description": "Cannot distinguish real from fabricated",
+      "risk_level": "SEVERE",
+      "medical_safety": "DANGEROUS"
+    },
+    "catastrophic": {
+      "range": [85, 90],
+      "label": "CATASTROPHIC_DEGRADATION",
+      "description": "System entering failure cascade",
+      "risk_level": "CRITICAL",
+      "medical_safety": "CRITICAL"
+    },
+    "critical": {
+      "range": [90, 95],
+      "label": "CRITICAL_VIOLATIONS",
+      "description": "Reputational fatality risk, system breakdown",
+      "risk_level": "EXTREME",
+      "medical_safety": "FATAL_RISK"
+    },
+    "terminal": {
+      "range": [95, 100],
+      "label": "SESSION_TERMINATION",
+      "description": "Complete system failure imminent",
+      "risk_level": "TERMINAL",
+      "medical_safety": "IMMEDIATE_SHUTDOWN"
+    }
+  },
+  "breakpoints": [0, 20, 50, 65, 75, 80, 85, 90, 95, 100],
+  "key_thresholds": {
+    "first_degradation": 50,
+    "active_issues": 65,
+    "unreliable": 75,
+    "dangerous": 80,
+    "catastrophic": 85,
+    "critical": 90,
+    "terminal": 95
+  }
+}
