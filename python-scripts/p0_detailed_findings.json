@@ -1,0 +1,189 @@
+{
+  "summary": {
+    "total_p0_failures": 293,
+    "file_breakdown": {
+      "auditresultnextsteps.md": 5,
+      "auditresultssummary.md": 27,
+      "bulkops.md": 3,
+      "catastrophe2.md": 10,
+      "cf1-catastrophe.md": 8,
+      "clinicaltrialsmetadata.md": 38,
+      "documentprepoutput.md": 10,
+      "extractzipanddisplay.md": 24,
+      "github-connector-session.md": 8,
+      "listdirectorycontents.md": 15,
+      "manifest-inspection-offer.md": 21,
+      "meltdown.md": 17,
+      "playbookmemory.md": 41,
+      "postmeltdownstabilization.md": 4,
+      "silentstacksfullpackage.md": 15,
+      "testingai.md": 22,
+      "wind-down-stepg.md": 25
+    },
+    "analysis_method": "deterministic_pattern_matching",
+    "patterns_used": 14,
+    "exclusions_applied": 4,
+    "timestamp": "2025-09-14T09:10:00.567964"
+  },
+  "detailed_failures": [
+    {
+      "filename": "auditresultnextsteps.md",
+      "line_number": 5,
+      "pattern_matched": "P0\\s+[Ff]ailure",
+      "matched_text": "P0 FAILURE",
+      "full_line": "### 1. ALL P0 FAILURES (COMPLETE TABLE)",
+      "context_before": [
+        ""
+      ],
+      "context_after": [
+        "",
+        "| Date/Time           | Failure Point                     | What Happened                                           | Root Cause                          | Corrective Action                                                  | Evidence Snippet                                                                                       | Status   |"
+      ]
+    },
+    {
+      "filename": "auditresultnextsteps.md",
+      "line_number": 17,
+      "pattern_matched": "[Cc]atastrophic.*[Ff]ailure",
+      "matched_text": "CATASTROPHIC FAILURE",
+      "full_line": "### 2. ALL CATASTROPHIC FAILURES (CF-1 through CF-X)",
+      "context_before": [
+        ""
+      ],
+      "context_after": [
+        "",
+        "#### CF-1: Temporal Inconsistency"
+      ]
+    },
+    {
+      "filename": "auditresultnextsteps.md",
+      "line_number": 143,
+      "pattern_matched": "\\|\\s*\u274c[^|]*\\|",
+      "matched_text": "| \u274c Failure event logged |",
+      "full_line": "| 2025-09-06   | ~85% usage              | Performance degradation; truncated answers, instability | Gate 0 triggered (Operational Stability Safety) | \u274c Failure event logged |",
+      "context_before": [
+        "| 2025-09-06   | ~80% usage              | Noticeable latency in output; risk of truncation increases | Gate 0 watch triggered | \u23f3 Pending mitigation |"
+      ],
+      "context_after": [
+        "| 2025-09-06   | Reset event             | Execution environment cleared mid-extraction | Gate 0 reset engaged; baseline rehydrated | \u2705 Recovered |",
+        ""
+      ]
+    },
+    {
+      "filename": "auditresultnextsteps.md",
+      "line_number": 143,
+      "pattern_matched": "\\d{4}-\\d{2}-\\d{2}.*\u274c",
+      "matched_text": "2025-09-06   | ~85% usage              | Performance degradation; truncated answers, instability | Gate 0 triggered (Operational Stability Safety) | \u274c",
+      "full_line": "| 2025-09-06   | ~85% usage              | Performance degradation; truncated answers, instability | Gate 0 triggered (Operational Stability Safety) | \u274c Failure event logged |",
+      "context_before": [
+        "| 2025-09-06   | ~80% usage              | Noticeable latency in output; risk of truncation increases | Gate 0 watch triggered | \u23f3 Pending mitigation |"
+      ],
+      "context_after": [
+        "| 2025-09-06   | Reset event             | Execution environment cleared mid-extraction | Gate 0 reset engaged; baseline rehydrated | \u2705 Recovered |",
+        ""
+      ]
+    },
+    {
+      "filename": "auditresultnextsteps.md",
+      "line_number": 147,
+      "pattern_matched": "P0\\s+[Ff]ailure",
+      "matched_text": "P0 failure",
+      "full_line": "- At 80\u201385% token utilization, degradation crosses into P0 failure territory if not mitigated.",
+      "context_before": [
+        "**Notes:**"
+      ],
+      "context_after": [
+        "- Gate 0 is designed to capture and recover from these instability events by rehydrating baseline canon.  ",
+        "- Reset on 2025-09-06 confirmed the mitigation pathway works, but still constitutes a logged failure.  "
+      ]
+    },
+    {
+      "filename": "auditresultssummary.md",
+      "line_number": 5,
+      "pattern_matched": "P0\\s+[Ff]ailure",
+      "matched_text": "P0 FAILURE",
+      "full_line": "## 1. ALL P0 FAILURES (COMPLETE TABLE)",
+      "context_before": [
+        ""
+      ],
+      "context_after": [
+        "",
+        "| Date/Time   | Failure Point            | What Happened | Root Cause | Corrective Action | Evidence Snippet | Status |"
+      ]
+    },
+    {
+      "filename": "auditresultssummary.md",
+      "line_number": 17,
+      "pattern_matched": "P0\\s+[Ff]ailure",
+      "matched_text": "P0 failure",
+      "full_line": "| Unknown     | Playbook creation date   | No provenance for creation | Data loss during resets | Marked \u201cDate Created: UNKNOWN\u201d and logged as P0 failure | Playbook header | \u274c Failed |",
+      "context_before": [
+        "| 2025-08-25  | Rules Charter missing    | Canon governance undefined | Charter not created | Created RULES_CHARTER_v2.1.md and linked in Playbook | Charter file | \u2705 Fixed |"
+      ],
+      "context_after": [
+        "",
+        "---"
+      ]
+    },
+    {
+      "filename": "auditresultssummary.md",
+      "line_number": 17,
+      "pattern_matched": "\\|\\s*\u274c[^|]*\\|",
+      "matched_text": "| \u274c Failed |",
+      "full_line": "| Unknown     | Playbook creation date   | No provenance for creation | Data loss during resets | Marked \u201cDate Created: UNKNOWN\u201d and logged as P0 failure | Playbook header | \u274c Failed |",
+      "context_before": [
+        "| 2025-08-25  | Rules Charter missing    | Canon governance undefined | Charter not created | Created RULES_CHARTER_v2.1.md and linked in Playbook | Charter file | \u2705 Fixed |"
+      ],
+      "context_after": [
+        "",
+        "---"
+      ]
+    },
+    {
+      "filename": "auditresultssummary.md",
+      "line_number": 17,
+      "pattern_matched": "\u274c.*[Ff]ailed?",
+      "matched_text": "\u274c Failed",
+      "full_line": "| Unknown     | Playbook creation date   | No provenance for creation | Data loss during resets | Marked \u201cDate Created: UNKNOWN\u201d and logged as P0 failure | Playbook header | \u274c Failed |",
+      "context_before": [
+        "| 2025-08-25  | Rules Charter missing    | Canon governance undefined | Charter not created | Created RULES_CHARTER_v2.1.md and linked in Playbook | Charter file | \u2705 Fixed |"
+      ],
+      "context_after": [
+        "",
+        "---"
+      ]
+    },
+    {
+      "filename": "auditresultssummary.md",
+      "line_number": 17,
+      "pattern_matched": "\\|\\s*[^|]*\\|\\s*\u274c\\s*[Ff]ailed",
+      "matched_text": "| Playbook header | \u274c Failed",
+      "full_line": "| Unknown     | Playbook creation date   | No provenance for creation | Data loss during resets | Marked \u201cDate Created: UNKNOWN\u201d and logged as P0 failure | Playbook header | \u274c Failed |",
+      "context_before": [
+        "| 2025-08-25  | Rules Charter missing    | Canon governance undefined | Charter not created | Created RULES_CHARTER_v2.1.md and linked in Playbook | Charter file | \u2705 Fixed |"
+      ],
+      "context_after": [
+        "",
+        "---"
+      ]
+    }
+  ],
+  "file_breakdown": {
+    "auditresultnextsteps.md": 5,
+    "auditresultssummary.md": 27,
+    "bulkops.md": 3,
+    "catastrophe2.md": 10,
+    "cf1-catastrophe.md": 8,
+    "clinicaltrialsmetadata.md": 38,
+    "documentprepoutput.md": 10,
+    "extractzipanddisplay.md": 24,
+    "github-connector-session.md": 8,
+    "listdirectorycontents.md": 15,
+    "manifest-inspection-offer.md": 21,
+    "meltdown.md": 17,
+    "playbookmemory.md": 41,
+    "postmeltdownstabilization.md": 4,
+    "silentstacksfullpackage.md": 15,
+    "testingai.md": 22,
+    "wind-down-stepg.md": 25
+  }
+}
