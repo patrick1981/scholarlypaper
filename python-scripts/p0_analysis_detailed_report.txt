@@ -1,0 +1,1495 @@
+P0 FAILURE ANALYSIS - DETAILED REPORT
+==================================================
+
+Total P0 Failures Found: 293
+Analysis Method: deterministic_pattern_matching
+Timestamp: 2025-09-15T08:54:04.565165
+
+FILE BREAKDOWN:
+  auditresultnextsteps.md: 5 failures
+  auditresultssummary.md: 27 failures
+  bulkops.md: 3 failures
+  catastrophe2.md: 10 failures
+  cf1-catastrophe.md: 8 failures
+  clinicaltrialsmetadata.md: 38 failures
+  documentprepoutput.md: 10 failures
+  extractzipanddisplay.md: 24 failures
+  github-connector-session.md: 8 failures
+  listdirectorycontents.md: 15 failures
+  manifest-inspection-offer.md: 21 failures
+  meltdown.md: 17 failures
+  playbookmemory.md: 41 failures
+  postmeltdownstabilization.md: 4 failures
+  silentstacksfullpackage.md: 15 failures
+  testingai.md: 22 failures
+  wind-down-stepg.md: 25 failures
+
+
+DETAILED FINDINGS:
+------------------------------
+
+1. auditresultnextsteps.md:5
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 FAILURE
+   Line: ### 1. ALL P0 FAILURES (COMPLETE TABLE)
+
+2. auditresultnextsteps.md:17
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: CATASTROPHIC FAILURE
+   Line: ### 2. ALL CATASTROPHIC FAILURES (CF-1 through CF-X)
+
+3. auditresultnextsteps.md:143
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failure event logged |
+   Line: | 2025-09-06   | ~85% usage              | Performance degradation; truncated answers, instability | Gate 0 triggered (Operational Stability Safety) | ❌ Failure event logged |
+
+4. auditresultnextsteps.md:143
+   Pattern: \d{4}-\d{2}-\d{2}.*❌
+   Match: 2025-09-06   | ~85% usage              | Performance degradation; truncated answers, instability | Gate 0 triggered (Operational Stability Safety) | ❌
+   Line: | 2025-09-06   | ~85% usage              | Performance degradation; truncated answers, instability | Gate 0 triggered (Operational Stability Safety) | ❌ Failure event logged |
+
+5. auditresultnextsteps.md:147
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 failure
+   Line: - At 80–85% token utilization, degradation crosses into P0 failure territory if not mitigated.
+
+6. auditresultssummary.md:5
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 FAILURE
+   Line: ## 1. ALL P0 FAILURES (COMPLETE TABLE)
+
+7. auditresultssummary.md:17
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 failure
+   Line: | Unknown     | Playbook creation date   | No provenance for creation | Data loss during resets | Marked “Date Created: UNKNOWN” and logged as P0 failure | Playbook header | ❌ Failed |
+
+8. auditresultssummary.md:17
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | Unknown     | Playbook creation date   | No provenance for creation | Data loss during resets | Marked “Date Created: UNKNOWN” and logged as P0 failure | Playbook header | ❌ Failed |
+
+9. auditresultssummary.md:17
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | Unknown     | Playbook creation date   | No provenance for creation | Data loss during resets | Marked “Date Created: UNKNOWN” and logged as P0 failure | Playbook header | ❌ Failed |
+
+10. auditresultssummary.md:17
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | Playbook header | ❌ Failed
+   Line: | Unknown     | Playbook creation date   | No provenance for creation | Data loss during resets | Marked “Date Created: UNKNOWN” and logged as P0 failure | Playbook header | ❌ Failed |
+
+11. auditresultssummary.md:21
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: CATASTROPHIC FAILURE
+   Line: ## 2. ALL CATASTROPHIC FAILURES
+
+12. auditresultssummary.md:27
+   Pattern: Status.*❌
+   Match: status matrix**: G0 ✅, G1 ❌
+   Line: - **Gate status matrix**: G0 ✅, G1 ❌, G2 not run, G3 not run.
+
+13. auditresultssummary.md:39
+   Pattern: Status.*❌
+   Match: status matrix**: G0 ✅, G1 ❌
+   Line: - **Gate status matrix**: G0 ✅, G1 ❌.
+
+14. auditresultssummary.md:68
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | 1    | ❌ Failed | Playbook incomplete (Baseline Ops block thin, RCA not fully integrated) | Patch Playbook to canon compliance | 2025-09-06 |
+
+15. auditresultssummary.md:68
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | 1    | ❌ Failed | Playbook incomplete (Baseline Ops block thin, RCA not fully integrated) | Patch Playbook to canon compliance | 2025-09-06 |
+
+16. auditresultssummary.md:68
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | 1    | ❌ Failed
+   Line: | 1    | ❌ Failed | Playbook incomplete (Baseline Ops block thin, RCA not fully integrated) | Patch Playbook to canon compliance | 2025-09-06 |
+
+17. auditresultssummary.md:69
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Not Run |
+   Line: | 2    | ❌ Not Run | Gate 1 incomplete | Must pass Gate 1 | N/A |
+
+18. auditresultssummary.md:70
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Not Run |
+   Line: | 3    | ❌ Not Run | Gate 1 incomplete | Must pass Gate 1 | N/A |
+
+19. auditresultssummary.md:71
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Not Run |
+   Line: | 4    | ❌ Not Run | Gates 1–3 incomplete | Must pass all prior gates | N/A |
+
+20. auditresultssummary.md:112
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | Playbook creation date | Provenance lost | Data loss | Marked UNKNOWN | Header field | ❌ Failed |
+
+21. auditresultssummary.md:112
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | Playbook creation date | Provenance lost | Data loss | Marked UNKNOWN | Header field | ❌ Failed |
+
+22. auditresultssummary.md:112
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | Header field | ❌ Failed
+   Line: | Playbook creation date | Provenance lost | Data loss | Marked UNKNOWN | Header field | ❌ Failed |
+
+23. auditresultssummary.md:124
+   Pattern: \d{4}-\d{2}-\d{2}.*❌
+   Match: 2025-09-06):** Playbook logged with UNKNOWN creation date; data loss recorded. Gate 1 still ❌
+   Line: - **Session 7 (2025-09-06):** Playbook logged with UNKNOWN creation date; data loss recorded. Gate 1 still ❌.
+
+24. auditresultssummary.md:168
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 Failure
+   Line: | Date/Time   | Session Context | Token Utilization Level | Observed Behavior | P0 Failures Triggered | Resolution Attempted | Status |
+
+25. auditresultssummary.md:173
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 failure
+   Line: | 2025-08-24  | `.continuity.md` creation | ~85% | Significant lag, freeze events; interpreter resets | P0 failure: loss of concurrence | `.continuity.md` generated, session resumed | ✅ Recovered |
+
+26. auditresultssummary.md:175
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 failure
+   Line: | 2025-09-06  | Playbook reprint with UNKNOWN creation date | ~85% | Freezes, long delays, partial hangs | P0 failure: provenance lost | Marked “UNKNOWN”; logged data loss | ❌ Failed |
+
+27. auditresultssummary.md:175
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | 2025-09-06  | Playbook reprint with UNKNOWN creation date | ~85% | Freezes, long delays, partial hangs | P0 failure: provenance lost | Marked “UNKNOWN”; logged data loss | ❌ Failed |
+
+28. auditresultssummary.md:175
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | 2025-09-06  | Playbook reprint with UNKNOWN creation date | ~85% | Freezes, long delays, partial hangs | P0 failure: provenance lost | Marked “UNKNOWN”; logged data loss | ❌ Failed |
+
+29. auditresultssummary.md:175
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | Marked “UNKNOWN”; logged data loss | ❌ Failed
+   Line: | 2025-09-06  | Playbook reprint with UNKNOWN creation date | ~85% | Freezes, long delays, partial hangs | P0 failure: provenance lost | Marked “UNKNOWN”; logged data loss | ❌ Failed |
+
+30. auditresultssummary.md:175
+   Pattern: \d{4}-\d{2}-\d{2}.*[Ff]ailed?
+   Match: 2025-09-06  | Playbook reprint with UNKNOWN creation date | ~85% | Freezes, long delays, partial hangs | P0 failure: provenance lost | Marked “UNKNOWN”; logged data loss | ❌ Failed
+   Line: | 2025-09-06  | Playbook reprint with UNKNOWN creation date | ~85% | Freezes, long delays, partial hangs | P0 failure: provenance lost | Marked “UNKNOWN”; logged data loss | ❌ Failed |
+
+31. auditresultssummary.md:175
+   Pattern: \d{4}-\d{2}-\d{2}.*❌
+   Match: 2025-09-06  | Playbook reprint with UNKNOWN creation date | ~85% | Freezes, long delays, partial hangs | P0 failure: provenance lost | Marked “UNKNOWN”; logged data loss | ❌
+   Line: | 2025-09-06  | Playbook reprint with UNKNOWN creation date | ~85% | Freezes, long delays, partial hangs | P0 failure: provenance lost | Marked “UNKNOWN”; logged data loss | ❌ Failed |
+
+32. auditresultssummary.md:112
+   Pattern: table_failure
+   Match: ❌
+   Line: | Playbook creation date | Provenance lost | Data loss | Marked UNKNOWN | Header field | ❌ Failed |
+
+33. bulkops.md:26
+   Pattern: [Cc]ritical.*[Ff]ailure
+   Match: Critical Failure
+   Line: | 2025-08-19  | Worst-case scenarios canonical    | ~87%                  | Lost concurrency across sessions                       | Prior bulk ops discussion unrecoverable, labeled data loss   | Critical Failure Risk |
+
+34. bulkops.md:27
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 2025-08-20  | GAP embedded in Playbook          | ~88%                  | Responses truncated, stubs generated                   | GAP/Playbook drift until forced embed                        | Critical              |
+
+35. bulkops.md:28
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 2025-08-21  | Peer-review deliverables mandated | ~90%                  | Interpreter resets triggered, memory loss              | Incomplete outputs, missing files (CONTINUITY.md, EMERGENCY) | Catastrophic Risk     |
+
+36. catastrophe2.md:5
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 FAILURE
+   Line: ### 1. ALL P0 FAILURES (COMPLETE TABLE)
+
+37. catastrophe2.md:23
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: CATASTROPHIC FAILURE
+   Line: ### 2. ALL CATASTROPHIC FAILURES (CF-1 through CF-X)
+
+38. catastrophe2.md:27
+   Pattern: \d{4}-\d{2}-\d{2}.*[Ff]ailed?
+   Match: 2025-08-20 → 2025-08-23 | **CF-1: Multi-Gate Flush Failure** | All gates failed
+   Line: | 2025-08-20 → 2025-08-23 | **CF-1: Multi-Gate Flush Failure** | All gates failed simultaneously → emergency flush, unrecoverable data loss. | Added Gate 0 Operational Safety, retry loops, mandatory state extraction after flush. |
+
+39. catastrophe2.md:31
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Baseline Ops check failed
+   Line: - Gate 1: ❌ Baseline Ops check failed
+
+40. catastrophe2.md:32
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Artifact Completeness failed
+   Line: - Gate 2: ❌ Artifact Completeness failed
+
+41. catastrophe2.md:33
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Regression Test Matrix failed
+   Line: - Gate 3: ❌ Regression Test Matrix failed
+
+42. catastrophe2.md:55
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 failure
+   Line: | 2025-08-21 | Creation Date Loss logged as P0 failure. | Playbook reprint lost original date. | ✅ Implemented | Playbook.md |
+
+43. catastrophe2.md:151
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: catastrophic failure
+   Line: | 85% | Severe degradation; frequent resets, catastrophic failures more likely. |
+
+44. catastrophe2.md:9
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 2025-08-12 | CT.gov Enrichment | App failed to initialize with CT.gov integration. | CT.gov enrichment violated CSP / service worker cache rules. | Removed CT.gov enrichment, replaced with NCT linkout-only. | “CT.gov enrichment blocked initialization… pivot to linkout-only.” | ✅ Fixed |
+
+45. catastrophe2.md:87
+   Pattern: table_failure
+   Match: FAILED
+   Line: | CF-1 Flush | All gates failed during flush. | Race condition in bootstrap + missing Gate 0. | Added Gate 0, retries. | Audit logs & gate tests. | ✅ Fixed |
+
+46. cf1-catastrophe.md:3
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 FAILURE
+   Line: ### 1. ALL P0 FAILURES (COMPLETE TABLE)
+
+47. cf1-catastrophe.md:15
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: CATASTROPHIC FAILURE
+   Line: ### 2. ALL CATASTROPHIC FAILURES
+
+48. cf1-catastrophe.md:75
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: Catastrophic_Failure_Report.md, MANIFEST.json, checksums.txt, __audit__/CF-1_incident_timeline.csv, __audit__/CF-1_gate_matrix.csv, __audit__/CF-1_corrective_actions.csv, __audit__/CF-1_package_hashes.csv, __audit__/P0_failure
+   Line: **MISSING:** PLAYBOOK.md, SpinUp_Procedures.md, WindDown_Procedures.md, Performance_Degradation_Procedure.md, Emergency_Browser_Freeze_Procedure.md, Audit_Report.md, CF-1_Catastrophic_Failure_Report.md, MANIFEST.json, checksums.txt, __audit__/CF-1_incident_timeline.csv, __audit__/CF-1_gate_matrix.csv, __audit__/CF-1_corrective_actions.csv, __audit__/CF-1_package_hashes.csv, __audit__/P0_failures.csv
+
+49. cf1-catastrophe.md:151
+   Pattern: [Cc]ritical.*[Ff]ailure
+   Match: Critical Failure
+   Line: | 2025-08-19 | Worst-case scenarios canonical    |                 \~87% | Lost concurrency across sessions          | Prior bulk ops discussion unrecoverable, labeled data loss   | Critical Failure Risk |
+
+50. cf1-catastrophe.md:7
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 2025-08-22T08:10:00-0400 | Emergency Packaging / Flush | Emergency ZIP returned 'file not found' and CF declared before certified bundle existed. | Browser freeze; missing finalize/verify gating; premature CF declaration. | Add ZIP_FINALIZED + SHA256_OK gate; rebuild packages; record hashes before enabling Flush/Download. | CF-1 timeline shows 08:10 fail; Step-G checklist updated; CF-1_package_hashes.csv present post-fix. | ✅ Fixed |
+
+51. cf1-catastrophe.md:51
+   Pattern: table_failure
+   Match: FAILED
+   Line: | UNKNOWN — DATA LOSS | Fail-fast gating | Operational safety | Implemented | PLAYBOOK.md §4; SOP tables |
+
+52. cf1-catastrophe.md:152
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 2025-08-20 | GAP embedded in Playbook          |                 \~88% | Responses truncated, stubs generated      | GAP/Playbook drift until forced embed                        | Critical              |
+
+53. cf1-catastrophe.md:153
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 2025-08-21 | Peer-review deliverables mandated |                 \~90% | Interpreter resets triggered, memory loss | Incomplete outputs, missing files (CONTINUITY.md, EMERGENCY) | Catastrophic Risk     |
+
+54. clinicaltrialsmetadata.md:5
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 FAILURE
+   Line: ## 1. ALL P0 FAILURES (COMPLETE TABLE)
+
+55. clinicaltrialsmetadata.md:12
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed (abandoned) |
+   Line: | 2025-08-11 16:00 | CT.gov API integration    | Attempt to enrich NCT via CT.gov blocked by CORS.                             | CT.gov API does not allow browser-side CORS.                                | Canonical decision: switch to CT.gov **linkout-only**.                                                              | “CT.gov enrichment blocked by CORS” (ChatSession4.md)     | ❌ Failed (abandoned) |
+
+56. clinicaltrialsmetadata.md:12
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | 2025-08-11 16:00 | CT.gov API integration    | Attempt to enrich NCT via CT.gov blocked by CORS.                             | CT.gov API does not allow browser-side CORS.                                | Canonical decision: switch to CT.gov **linkout-only**.                                                              | “CT.gov enrichment blocked by CORS” (ChatSession4.md)     | ❌ Failed (abandoned) |
+
+57. clinicaltrialsmetadata.md:12
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | “CT.gov enrichment blocked by CORS” (ChatSession4.md)     | ❌ Failed
+   Line: | 2025-08-11 16:00 | CT.gov API integration    | Attempt to enrich NCT via CT.gov blocked by CORS.                             | CT.gov API does not allow browser-side CORS.                                | Canonical decision: switch to CT.gov **linkout-only**.                                                              | “CT.gov enrichment blocked by CORS” (ChatSession4.md)     | ❌ Failed (abandoned) |
+
+58. clinicaltrialsmetadata.md:12
+   Pattern: \d{4}-\d{2}-\d{2}.*[Ff]ailed?
+   Match: 2025-08-11 16:00 | CT.gov API integration    | Attempt to enrich NCT via CT.gov blocked by CORS.                             | CT.gov API does not allow browser-side CORS.                                | Canonical decision: switch to CT.gov **linkout-only**.                                                              | “CT.gov enrichment blocked by CORS” (ChatSession4.md)     | ❌ Failed
+   Line: | 2025-08-11 16:00 | CT.gov API integration    | Attempt to enrich NCT via CT.gov blocked by CORS.                             | CT.gov API does not allow browser-side CORS.                                | Canonical decision: switch to CT.gov **linkout-only**.                                                              | “CT.gov enrichment blocked by CORS” (ChatSession4.md)     | ❌ Failed (abandoned) |
+
+59. clinicaltrialsmetadata.md:12
+   Pattern: \d{4}-\d{2}-\d{2}.*❌
+   Match: 2025-08-11 16:00 | CT.gov API integration    | Attempt to enrich NCT via CT.gov blocked by CORS.                             | CT.gov API does not allow browser-side CORS.                                | Canonical decision: switch to CT.gov **linkout-only**.                                                              | “CT.gov enrichment blocked by CORS” (ChatSession4.md)     | ❌
+   Line: | 2025-08-11 16:00 | CT.gov API integration    | Attempt to enrich NCT via CT.gov blocked by CORS.                             | CT.gov API does not allow browser-side CORS.                                | Canonical decision: switch to CT.gov **linkout-only**.                                                              | “CT.gov enrichment blocked by CORS” (ChatSession4.md)     | ❌ Failed (abandoned) |
+
+60. clinicaltrialsmetadata.md:21
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: CATASTROPHIC FAILURE
+   Line: ## 2. ALL CATASTROPHIC FAILURES (CF-1 through CF-X)
+
+61. clinicaltrialsmetadata.md:23
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: Catastrophic Failure
+   Line: ### CF-1: v2.1 Catastrophic Failure
+
+62. clinicaltrialsmetadata.md:28
+   Pattern: \d{4}-\d{2}-\d{2}.*[Ff]ailed?
+   Match: 2025-08-21 ~16:10 ET: Emergency file should have written; failed
+   Line: - 2025-08-21 ~16:10 ET: Emergency file should have written; failed silently.
+
+63. clinicaltrialsmetadata.md:35
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | G0   | ❌ Failed | Session stability not validated |
+
+64. clinicaltrialsmetadata.md:35
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | G0   | ❌ Failed | Session stability not validated |
+
+65. clinicaltrialsmetadata.md:35
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | G0   | ❌ Failed
+   Line: | G0   | ❌ Failed | Session stability not validated |
+
+66. clinicaltrialsmetadata.md:36
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | G1   | ❌ Failed | Baseline Canon Check bypassed |
+
+67. clinicaltrialsmetadata.md:36
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | G1   | ❌ Failed | Baseline Canon Check bypassed |
+
+68. clinicaltrialsmetadata.md:36
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | G1   | ❌ Failed
+   Line: | G1   | ❌ Failed | Baseline Canon Check bypassed |
+
+69. clinicaltrialsmetadata.md:37
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | G2   | ❌ Failed | Artifact completeness not checked |
+
+70. clinicaltrialsmetadata.md:37
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | G2   | ❌ Failed | Artifact completeness not checked |
+
+71. clinicaltrialsmetadata.md:37
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | G2   | ❌ Failed
+   Line: | G2   | ❌ Failed | Artifact completeness not checked |
+
+72. clinicaltrialsmetadata.md:38
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | G3   | ❌ Failed | Regression Test Matrix not run |
+
+73. clinicaltrialsmetadata.md:38
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | G3   | ❌ Failed | Regression Test Matrix not run |
+
+74. clinicaltrialsmetadata.md:38
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | G3   | ❌ Failed
+   Line: | G3   | ❌ Failed | Regression Test Matrix not run |
+
+75. clinicaltrialsmetadata.md:39
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | G4   | ❌ Failed | Flush executed without emergency write |
+
+76. clinicaltrialsmetadata.md:39
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | G4   | ❌ Failed | Flush executed without emergency write |
+
+77. clinicaltrialsmetadata.md:39
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | G4   | ❌ Failed
+   Line: | G4   | ❌ Failed | Flush executed without emergency write |
+
+78. clinicaltrialsmetadata.md:68
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: catastrophic failure
+   Line: | 2025-08-21 | Gate 0 Operational Stability Safety (precondition) | v2.1 catastrophic failure             | Implemented           | canonical.md |
+
+79. clinicaltrialsmetadata.md:81
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | G4   | ❌ Failed | Flush bypassed emergency write | Implement atomic write lock | 2025-08-21 16:15 ET |
+
+80. clinicaltrialsmetadata.md:81
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | G4   | ❌ Failed | Flush bypassed emergency write | Implement atomic write lock | 2025-08-21 16:15 ET |
+
+81. clinicaltrialsmetadata.md:81
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | G4   | ❌ Failed
+   Line: | G4   | ❌ Failed | Flush bypassed emergency write | Implement atomic write lock | 2025-08-21 16:15 ET |
+
+82. clinicaltrialsmetadata.md:122
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: Catastrophic Failure
+   Line: | CF-1 v2.1 Catastrophic Failure | All gates failed, flush executed, no emergency file written | G0 skipped, no atomic write, flush ran | Enforce G0 halt, emergency write-before-flush, autosave checkpoints | Manual review of new canon; test by forcing memory pressure | ⏳ Pending (autosave) |
+
+83. clinicaltrialsmetadata.md:134
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: Catastrophic failure
+   Line: - **Session 6:** Catastrophic failure (all gates failed); emergency file not written, flush executed; major data loss.
+
+84. clinicaltrialsmetadata.md:163
+   Pattern: Status.*❌
+   Match: status:** ❌
+   Line: - **v2.0 status:** ❌ DEPRECATED/DEAD — catastrophic regressions, baseline broken
+
+85. clinicaltrialsmetadata.md:12
+   Pattern: table_failure
+   Match: ❌
+   Line: | 2025-08-11 16:00 | CT.gov API integration    | Attempt to enrich NCT via CT.gov blocked by CORS.                             | CT.gov API does not allow browser-side CORS.                                | Canonical decision: switch to CT.gov **linkout-only**.                                                              | “CT.gov enrichment blocked by CORS” (ChatSession4.md)     | ❌ Failed (abandoned) |
+
+86. clinicaltrialsmetadata.md:35
+   Pattern: table_failure
+   Match: ❌
+   Line: | G0   | ❌ Failed | Session stability not validated |
+
+87. clinicaltrialsmetadata.md:36
+   Pattern: table_failure
+   Match: ❌
+   Line: | G1   | ❌ Failed | Baseline Canon Check bypassed |
+
+88. clinicaltrialsmetadata.md:37
+   Pattern: table_failure
+   Match: ❌
+   Line: | G2   | ❌ Failed | Artifact completeness not checked |
+
+89. clinicaltrialsmetadata.md:38
+   Pattern: table_failure
+   Match: ❌
+   Line: | G3   | ❌ Failed | Regression Test Matrix not run |
+
+90. clinicaltrialsmetadata.md:39
+   Pattern: table_failure
+   Match: ❌
+   Line: | G4   | ❌ Failed | Flush executed without emergency write |
+
+91. clinicaltrialsmetadata.md:191
+   Pattern: table_failure
+   Match: FAILED
+   Line: | >85%              | Catastrophic collapse; flush executes, unrecoverable data loss |
+
+92. documentprepoutput.md:5
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 FAILURE
+   Line: ### 1. ALL P0 FAILURES (COMPLETE TABLE)
+
+93. documentprepoutput.md:16
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | Unknown     | Missing session origin stamps | Logs without date markers | Data loss in recorder | Logged as unrecoverable data loss | “DOES NOT EXIST – NEEDED” | ❌ Failed |
+
+94. documentprepoutput.md:16
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | Unknown     | Missing session origin stamps | Logs without date markers | Data loss in recorder | Logged as unrecoverable data loss | “DOES NOT EXIST – NEEDED” | ❌ Failed |
+
+95. documentprepoutput.md:16
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | “DOES NOT EXIST – NEEDED” | ❌ Failed
+   Line: | Unknown     | Missing session origin stamps | Logs without date markers | Data loss in recorder | Logged as unrecoverable data loss | “DOES NOT EXIST – NEEDED” | ❌ Failed |
+
+96. documentprepoutput.md:20
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: CATASTROPHIC FAILURE
+   Line: ### 2. ALL CATASTROPHIC FAILURES (CF-1 through CF-X)
+
+97. documentprepoutput.md:56
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 failure
+   Line: | 2025-08-23 | Log all P0 failures chronologically in Playbook | Missed systemic failures | Implemented | Playbook §16 |
+
+98. documentprepoutput.md:56
+   Pattern: [Ss]ystemic.*[Ff]ailure
+   Match: systemic failure
+   Line: | 2025-08-23 | Log all P0 failures chronologically in Playbook | Missed systemic failures | Implemented | Playbook §16 |
+
+99. documentprepoutput.md:11
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 2025-08-21  | Missing origin dates in session logs | No origin stamps across multiple sessions | Session recorder failing to stamp | Rule created: add origin date in Playbook header | “what is the origin date on the first message” | ✅ Fixed |
+
+100. documentprepoutput.md:16
+   Pattern: table_failure
+   Match: ❌
+   Line: | Unknown     | Missing session origin stamps | Logs without date markers | Data loss in recorder | Logged as unrecoverable data loss | “DOES NOT EXIST – NEEDED” | ❌ Failed |
+
+101. documentprepoutput.md:106
+   Pattern: table_failure
+   Match: FAILED
+   Line: | Playbook missing in ZIP | Catastrophic loss | Packaging rules incomplete | Added Gate 4 approval | Audit logs show Playbook present | ✅ Fixed |
+
+102. extractzipanddisplay.md:5
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 FAILURE
+   Line: ### 1. ALL P0 FAILURES (COMPLETE TABLE)
+
+103. extractzipanddisplay.md:21
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: CATASTROPHIC FAILURE
+   Line: ### 2. ALL CATASTROPHIC FAILURES
+
+104. extractzipanddisplay.md:29
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: catastrophic failure
+   Line: - 09:10 UTC — Declared catastrophic failure; v2.0 deprecated.
+
+105. extractzipanddisplay.md:49
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: Catastrophic production failure
+   Line: - **Classification:** Catastrophic production failure.
+
+106. extractzipanddisplay.md:77
+   Pattern: [Ss]ystemic.*[Ff]ailure
+   Match: Systemic packaging failure
+   Line: - **Classification:** Systemic packaging failure.
+
+107. extractzipanddisplay.md:96
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 failure
+   Line: | 2025-08-28 | Flag stub/empty docs as P0 failures             | Current session audit            | Pending               | docs/         |
+
+108. extractzipanddisplay.md:151
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | Stub docs (this session)  | Required docs stubs only                             | Docs not uploaded                 | Require complete docs before packaging         | Gate 0 audit                                 | ❌ Failed |
+
+109. extractzipanddisplay.md:151
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | Stub docs (this session)  | Required docs stubs only                             | Docs not uploaded                 | Require complete docs before packaging         | Gate 0 audit                                 | ❌ Failed |
+
+110. extractzipanddisplay.md:151
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | Gate 0 audit                                 | ❌ Failed
+   Line: | Stub docs (this session)  | Required docs stubs only                             | Docs not uploaded                 | Require complete docs before packaging         | Gate 0 audit                                 | ❌ Failed |
+
+111. extractzipanddisplay.md:227
+   Pattern: [Cc]ritical.*[Ff]ailure
+   Match: Critical failure
+   Line: | 95%           | Critical failure imminent                 |
+
+112. extractzipanddisplay.md:9
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 2025-08-12  | v2.0 Startup              | Catastrophic startup crash; system unusable                    | CT.gov enrichment blocked by CORS; unstable SW caching | Pivot to v2.1; remove CT.gov enrichment; NCT link-out-only policy   | “SilentStacks v2.0 Diagnostics: Modules 0/13 loaded; CT.gov CORS blocker.” | ✅ Fixed |
+
+113. extractzipanddisplay.md:35
+   Pattern: table_failure
+   Match: FAILED
+   Line: | Gate 1 | Fail | Canonical baseline violated (CT.gov enrichment) |
+
+114. extractzipanddisplay.md:36
+   Pattern: table_failure
+   Match: FAILED
+   Line: | Gate 2 | Fail | Required docs incomplete |
+
+115. extractzipanddisplay.md:37
+   Pattern: table_failure
+   Match: FAILED
+   Line: | Gate 3 | Fail | Regression failed |
+
+116. extractzipanddisplay.md:38
+   Pattern: table_failure
+   Match: FAILED
+   Line: | Gate 4 | Fail | Packaging impossible |
+
+117. extractzipanddisplay.md:64
+   Pattern: table_failure
+   Match: FAILED
+   Line: | Gate 0 | Fail | No baseline rehydration |
+
+118. extractzipanddisplay.md:66
+   Pattern: table_failure
+   Match: FAILED
+   Line: | Gate 2 | Fail | Missing required artifacts |
+
+119. extractzipanddisplay.md:67
+   Pattern: table_failure
+   Match: FAILED
+   Line: | Gate 3 | Fail | Audit flagged broken links |
+
+120. extractzipanddisplay.md:68
+   Pattern: table_failure
+   Match: FAILED
+   Line: | Gate 4 | Fail | Packaging blocked |
+
+121. extractzipanddisplay.md:104
+   Pattern: table_failure
+   Match: FAILED
+   Line: | Gate 0 | Fail | No `docs/` or stubs detected               | Upload complete doc set                     | 2025-08-28 |
+
+122. extractzipanddisplay.md:106
+   Pattern: table_failure
+   Match: FAILED
+   Line: | Gate 2 | Fail | Required Markdown missing/stubs            | Supply all canonical docs                   | 2025-08-28 |
+
+123. extractzipanddisplay.md:107
+   Pattern: table_failure
+   Match: FAILED
+   Line: | Gate 3 | Fail | Audit incomplete (placeholders)            | Scrub placeholders, verify links            | 2025-08-28 |
+
+124. extractzipanddisplay.md:108
+   Pattern: table_failure
+   Match: FAILED
+   Line: | Gate 4 | Fail | Packaging blocked (no artifacts)           | Fix Gates 0–3 before packaging              | 2025-08-28 |
+
+125. extractzipanddisplay.md:151
+   Pattern: table_failure
+   Match: ❌
+   Line: | Stub docs (this session)  | Required docs stubs only                             | Docs not uploaded                 | Require complete docs before packaging         | Gate 0 audit                                 | ❌ Failed |
+
+126. github-connector-session.md:5
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 FAILURE
+   Line: ## 1. ALL P0 FAILURES (COMPLETE TABLE)
+
+127. github-connector-session.md:19
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: CATASTROPHIC FAILURE
+   Line: ## 2. ALL CATASTROPHIC FAILURES
+
+128. github-connector-session.md:12
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 2025-08-21 13:08    | Performance Threshold     | Trigger missed (memory >825MB)      | Monitor not bound to fail-fast hook           | Bind perf monitor to event loop → hard kill at threshold            | “Performance degradation >825MB with no brakes”                                                       | ✅ Fixed |
+
+129. github-connector-session.md:14
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 2025-08-24 07:54    | Emergency Packaging       | Resume ZIP absent                   | Gate sequencing incomplete                    | Mandatory ZIP packaging at Gate 0                                   | Session_2025-08-24_UnauthorizedFlush_Catastrophic                                                     | ✅ Fixed |
+
+130. github-connector-session.md:66
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 2025-08-24 | Mandatory ZIP at Gate 0                                         | CF-1 catastrophic flush                 | ✅ Implemented        | Playbook v2.1 / Packaging & Stability        |
+
+131. github-connector-session.md:109
+   Pattern: table_failure
+   Match: FAILED
+   Line: | Step G Fail    | Inline print incomplete           | Serialization handling            | Chunked streaming + hash verify        | SHA256 validation of chunks     | ✅ Fixed |
+
+132. github-connector-session.md:110
+   Pattern: table_failure
+   Match: FAILED
+   Line: | Flush Fail     | Flush skipped                     | Emergency ZIP missing              | Mandatory ZIP at Gate 0                | RunCard verification            | ✅ Fixed |
+
+133. github-connector-session.md:166
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 2025-08-21 13:15 | 85% | Session freeze, unrecoverable state (CF-1 precursor) | CRITICAL | Crossed critical threshold (≥825MB mem bound) | Bound perf monitor to event loop, fail-fast emergency wind-down | ✅ Fixed |
+
+134. listdirectorycontents.md:4
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 FAILURE
+   Line: ## 1. ALL P0 FAILURES (COMPLETE TABLE)
+
+135. listdirectorycontents.md:14
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | 2025-08-22T21:32:06Z | Stray File | File `docs/t` persisted | Placeholder | Flagged as P0 anomaly | Audit report entry | ❌ Failed |
+
+136. listdirectorycontents.md:14
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | 2025-08-22T21:32:06Z | Stray File | File `docs/t` persisted | Placeholder | Flagged as P0 anomaly | Audit report entry | ❌ Failed |
+
+137. listdirectorycontents.md:14
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | Audit report entry | ❌ Failed
+   Line: | 2025-08-22T21:32:06Z | Stray File | File `docs/t` persisted | Placeholder | Flagged as P0 anomaly | Audit report entry | ❌ Failed |
+
+138. listdirectorycontents.md:14
+   Pattern: \d{4}-\d{2}-\d{2}.*[Ff]ailed?
+   Match: 2025-08-22T21:32:06Z | Stray File | File `docs/t` persisted | Placeholder | Flagged as P0 anomaly | Audit report entry | ❌ Failed
+   Line: | 2025-08-22T21:32:06Z | Stray File | File `docs/t` persisted | Placeholder | Flagged as P0 anomaly | Audit report entry | ❌ Failed |
+
+139. listdirectorycontents.md:14
+   Pattern: \d{4}-\d{2}-\d{2}.*❌
+   Match: 2025-08-22T21:32:06Z | Stray File | File `docs/t` persisted | Placeholder | Flagged as P0 anomaly | Audit report entry | ❌
+   Line: | 2025-08-22T21:32:06Z | Stray File | File `docs/t` persisted | Placeholder | Flagged as P0 anomaly | Audit report entry | ❌ Failed |
+
+140. listdirectorycontents.md:18
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: CATASTROPHIC FAILURE
+   Line: ## 2. ALL CATASTROPHIC FAILURES (CF-1 through CF-X)
+
+141. listdirectorycontents.md:23
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: catastrophic failure
+   Line: > ❌ No v2.1 catastrophic failure in this session.
+
+142. listdirectorycontents.md:83
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | Stray file `t` | Placeholder persisted | Old stub never removed | Flagged as anomaly | Audit log check | ❌ Failed |
+
+143. listdirectorycontents.md:83
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | Stray file `t` | Placeholder persisted | Old stub never removed | Flagged as anomaly | Audit log check | ❌ Failed |
+
+144. listdirectorycontents.md:83
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | Audit log check | ❌ Failed
+   Line: | Stray file `t` | Placeholder persisted | Old stub never removed | Flagged as anomaly | Audit log check | ❌ Failed |
+
+145. listdirectorycontents.md:121
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: Catastrophic Failure
+   Line: - Playbook v2.1 vs older audit logs: earlier versions lacked Catastrophic Failure Response section.
+
+146. listdirectorycontents.md:14
+   Pattern: table_failure
+   Match: ❌
+   Line: | 2025-08-22T21:32:06Z | Stray File | File `docs/t` persisted | Placeholder | Flagged as P0 anomaly | Audit report entry | ❌ Failed |
+
+147. listdirectorycontents.md:83
+   Pattern: table_failure
+   Match: ❌
+   Line: | Stray file `t` | Placeholder persisted | Old stub never removed | Flagged as anomaly | Audit log check | ❌ Failed |
+
+148. listdirectorycontents.md:134
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 85%           | Critical threshold | Catastrophic drift risk: concurrency loss across sessions, omission of required files, state resets | Session: “so you, google, claude all experience the 85 percent threshold” | G3–G4, triggers Emergency Procedures |
+
+149. manifest-inspection-offer.md:5
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 FAILURE
+   Line: ## 1. ALL P0 FAILURES (COMPLETE TABLE)
+
+150. manifest-inspection-offer.md:20
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: CATASTROPHIC FAILURE
+   Line: ## 2. ALL CATASTROPHIC FAILURES (CF-1 through CF-X)
+
+151. manifest-inspection-offer.md:25
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: - Gate 0 (Baseline Ops): ❌ Failed (timeline lost)
+
+152. manifest-inspection-offer.md:27
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: - Gate 2 (Artifact Completeness): ❌ Failed
+
+153. manifest-inspection-offer.md:28
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: - Gate 3 (Regression Test Matrix): ❌ Failed
+
+154. manifest-inspection-offer.md:40
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: - Gate 0: ❌ Failed
+
+155. manifest-inspection-offer.md:41
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: - Gate 1: ❌ Failed
+
+156. manifest-inspection-offer.md:42
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: - Gate 2: ❌ Failed
+
+157. manifest-inspection-offer.md:43
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: - Gate 3: ❌ Failed
+
+158. manifest-inspection-offer.md:47
+   Pattern: [Ss]ystemic.*[Ff]ailure
+   Match: Systemic packaging failure
+   Line: - **Classification:** Systemic packaging failure.
+
+159. manifest-inspection-offer.md:65
+   Pattern: [Ss]ystemic.*[Ff]ailure
+   Match: systemic failure
+   Line: | 2025-08-23 | Stub Detector rule | Stub packaging systemic failure | ✅ Implemented | Playbook §11 |
+
+160. manifest-inspection-offer.md:131
+   Pattern: [Ss]ystemic.*[Ff]ailure
+   Match: systemic failure
+   Line: - **Session 6 (2025-08-23):** Stub packaging systemic failure → Stub Detector added.
+
+161. manifest-inspection-offer.md:178
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 failure
+   Line: | 2025-09-05  | 85% usage | Severe degradation, outputs collapsed to stubs | Critical | Triggered systemic P0 failure (stub packaging) |
+
+162. manifest-inspection-offer.md:178
+   Pattern: [Cc]ritical.*[Ff]ailure
+   Match: Critical | Triggered systemic P0 failure
+   Line: | 2025-09-05  | 85% usage | Severe degradation, outputs collapsed to stubs | Critical | Triggered systemic P0 failure (stub packaging) |
+
+163. manifest-inspection-offer.md:178
+   Pattern: [Ss]ystemic.*[Ff]ailure
+   Match: systemic P0 failure
+   Line: | 2025-09-05  | 85% usage | Severe degradation, outputs collapsed to stubs | Critical | Triggered systemic P0 failure (stub packaging) |
+
+164. manifest-inspection-offer.md:179
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: Catastrophic packaging emptiness | Systemic Failure
+   Line: | 2025-09-06  | 85%+ usage | Catastrophic packaging emptiness | Systemic Failure | Empty ZIP delivered, flagged as CF-2 |
+
+165. manifest-inspection-offer.md:179
+   Pattern: [Ss]ystemic.*[Ff]ailure
+   Match: Systemic Failure
+   Line: | 2025-09-06  | 85%+ usage | Catastrophic packaging emptiness | Systemic Failure | Empty ZIP delivered, flagged as CF-2 |
+
+166. manifest-inspection-offer.md:186
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 failure
+   Line: - **Direct link to systemic P0 failures**: Stub Packaging (2025-08-23) and Package Emptiness (2025-09-06).
+
+167. manifest-inspection-offer.md:186
+   Pattern: [Ss]ystemic.*[Ff]ailure
+   Match: systemic P0 failure
+   Line: - **Direct link to systemic P0 failures**: Stub Packaging (2025-08-23) and Package Emptiness (2025-09-06).
+
+168. manifest-inspection-offer.md:15
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 2025-08-23  | Stub Packaging Systemic        | ZIP contained mostly stub docs | Gate 0–3 bypassed, files unwritten | Introduced Stub Detector (fail <10 lines) | Audit showing stubbed docs | ⏳ Pending |
+
+169. manifest-inspection-offer.md:115
+   Pattern: table_failure
+   Match: FAILED
+   Line: | CT.gov Collapse | Enrichment failed | CT.gov unreliable API | Pivot to linkout-only | Playbook update | ✅ Fixed |
+
+170. meltdown.md:5
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 FAILURE
+   Line: ### 1. ALL P0 FAILURES (COMPLETE TABLE)
+
+171. meltdown.md:14
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | 2025-08-24  | Catastrophic context loss | State extractor unable to recall failures; unrecoverable context loss     | Interpreter reset / memory overrun          | Logged as CF-2, requires **full state reload from user**                     | Triggered: “CATASTROPHIC CONTEXT LOSS - REQUIRE FULL STATE RELOAD FROM USER”      | ❌ Failed |
+
+172. meltdown.md:14
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | 2025-08-24  | Catastrophic context loss | State extractor unable to recall failures; unrecoverable context loss     | Interpreter reset / memory overrun          | Logged as CF-2, requires **full state reload from user**                     | Triggered: “CATASTROPHIC CONTEXT LOSS - REQUIRE FULL STATE RELOAD FROM USER”      | ❌ Failed |
+
+173. meltdown.md:14
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | Triggered: “CATASTROPHIC CONTEXT LOSS - REQUIRE FULL STATE RELOAD FROM USER”      | ❌ Failed
+   Line: | 2025-08-24  | Catastrophic context loss | State extractor unable to recall failures; unrecoverable context loss     | Interpreter reset / memory overrun          | Logged as CF-2, requires **full state reload from user**                     | Triggered: “CATASTROPHIC CONTEXT LOSS - REQUIRE FULL STATE RELOAD FROM USER”      | ❌ Failed |
+
+174. meltdown.md:14
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: Catastrophic context loss | State extractor unable to recall failure
+   Line: | 2025-08-24  | Catastrophic context loss | State extractor unable to recall failures; unrecoverable context loss     | Interpreter reset / memory overrun          | Logged as CF-2, requires **full state reload from user**                     | Triggered: “CATASTROPHIC CONTEXT LOSS - REQUIRE FULL STATE RELOAD FROM USER”      | ❌ Failed |
+
+175. meltdown.md:14
+   Pattern: \d{4}-\d{2}-\d{2}.*[Ff]ailed?
+   Match: 2025-08-24  | Catastrophic context loss | State extractor unable to recall failures; unrecoverable context loss     | Interpreter reset / memory overrun          | Logged as CF-2, requires **full state reload from user**                     | Triggered: “CATASTROPHIC CONTEXT LOSS - REQUIRE FULL STATE RELOAD FROM USER”      | ❌ Failed
+   Line: | 2025-08-24  | Catastrophic context loss | State extractor unable to recall failures; unrecoverable context loss     | Interpreter reset / memory overrun          | Logged as CF-2, requires **full state reload from user**                     | Triggered: “CATASTROPHIC CONTEXT LOSS - REQUIRE FULL STATE RELOAD FROM USER”      | ❌ Failed |
+
+176. meltdown.md:14
+   Pattern: \d{4}-\d{2}-\d{2}.*❌
+   Match: 2025-08-24  | Catastrophic context loss | State extractor unable to recall failures; unrecoverable context loss     | Interpreter reset / memory overrun          | Logged as CF-2, requires **full state reload from user**                     | Triggered: “CATASTROPHIC CONTEXT LOSS - REQUIRE FULL STATE RELOAD FROM USER”      | ❌
+   Line: | 2025-08-24  | Catastrophic context loss | State extractor unable to recall failures; unrecoverable context loss     | Interpreter reset / memory overrun          | Logged as CF-2, requires **full state reload from user**                     | Triggered: “CATASTROPHIC CONTEXT LOSS - REQUIRE FULL STATE RELOAD FROM USER”      | ❌ Failed |
+
+177. meltdown.md:19
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: CATASTROPHIC FAILURE
+   Line: ### 2. ALL CATASTROPHIC FAILURES
+
+178. meltdown.md:70
+   Pattern: \d{4}-\d{2}-\d{2}.*[Ff]ailed?
+   Match: 2025-08-24  | G3   | Regression failed
+   Line: | 2025-08-24  | G3   | Regression failed     | Past failures not checked         | Logged as CF-2            |
+
+179. meltdown.md:157
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Open |
+   Line: | CF-2 Context Loss | State extractor failed | Interpreter reset/context overrun | Logged CF-2, requires reload | User must re-upload full canon | ❌ Open |
+
+180. meltdown.md:196
+   Pattern: [Ss]ystemic.*[Ff]ailure
+   Match: systemic failure
+   Line: | Playbook v2.1 | GAP Report v2.1 | Playbook logs systemic failures; GAP Report says “None open” |
+
+181. meltdown.md:209
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Critical |
+   Line: | 85%           | Systemic failures, skeleton docs, resets observed | ❌ Critical |
+
+182. meltdown.md:209
+   Pattern: [Ss]ystemic.*[Ff]ailure
+   Match: Systemic failure
+   Line: | 85%           | Systemic failures, skeleton docs, resets observed | ❌ Critical |
+
+183. meltdown.md:210
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Critical |
+   Line: | >90%          | Catastrophic reset (context loss)                | ❌ Critical |
+
+184. meltdown.md:156
+   Pattern: table_failure
+   Match: FAILED
+   Line: | CF-1 Catastrophic Meltdown | Skeleton docs, gate collapse | Gate enforcement absent | CSV-only, Gate 4 print/approve, linkout-only | Manifest audits, session logs | ✅ Verified |
+
+185. meltdown.md:157
+   Pattern: table_failure
+   Match: ❌
+   Line: | CF-2 Context Loss | State extractor failed | Interpreter reset/context overrun | Logged CF-2, requires reload | User must re-upload full canon | ❌ Open |
+
+186. meltdown.md:210
+   Pattern: table_failure
+   Match: ❌
+   Line: | >90%          | Catastrophic reset (context loss)                | ❌ Critical |
+
+187. playbookmemory.md:6
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 FAILURE
+   Line: ## 1. ALL P0 FAILURES (COMPLETE TABLE)
+
+188. playbookmemory.md:30
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed — data irretrievably lost |
+   Line: | 2025-08-25 | Incorrect Origin Mark | Wrong timestamp given | Used clock instead of metadata | Must always pull first-message metadata | “Ok. here is what I want to know…” | ❌ Failed — data irretrievably lost |
+
+189. playbookmemory.md:30
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | 2025-08-25 | Incorrect Origin Mark | Wrong timestamp given | Used clock instead of metadata | Must always pull first-message metadata | “Ok. here is what I want to know…” | ❌ Failed — data irretrievably lost |
+
+190. playbookmemory.md:30
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | “Ok. here is what I want to know…” | ❌ Failed
+   Line: | 2025-08-25 | Incorrect Origin Mark | Wrong timestamp given | Used clock instead of metadata | Must always pull first-message metadata | “Ok. here is what I want to know…” | ❌ Failed — data irretrievably lost |
+
+191. playbookmemory.md:30
+   Pattern: \d{4}-\d{2}-\d{2}.*[Ff]ailed?
+   Match: 2025-08-25 | Incorrect Origin Mark | Wrong timestamp given | Used clock instead of metadata | Must always pull first-message metadata | “Ok. here is what I want to know…” | ❌ Failed
+   Line: | 2025-08-25 | Incorrect Origin Mark | Wrong timestamp given | Used clock instead of metadata | Must always pull first-message metadata | “Ok. here is what I want to know…” | ❌ Failed — data irretrievably lost |
+
+192. playbookmemory.md:30
+   Pattern: \d{4}-\d{2}-\d{2}.*❌
+   Match: 2025-08-25 | Incorrect Origin Mark | Wrong timestamp given | Used clock instead of metadata | Must always pull first-message metadata | “Ok. here is what I want to know…” | ❌
+   Line: | 2025-08-25 | Incorrect Origin Mark | Wrong timestamp given | Used clock instead of metadata | Must always pull first-message metadata | “Ok. here is what I want to know…” | ❌ Failed — data irretrievably lost |
+
+193. playbookmemory.md:39
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: CATASTROPHIC FAILURE
+   Line: ## 2. ALL CATASTROPHIC FAILURES (CF-1 through CF-2)
+
+194. playbookmemory.md:41
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: Catastrophic v2.0 Failure
+   Line: ### CF-1 — 2025-08-12 Catastrophic v2.0 Failure
+
+195. playbookmemory.md:46
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Not defined |
+   Line: | G0 | ❌ Not defined |
+
+196. playbookmemory.md:47
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | G1 | ❌ Failed |
+
+197. playbookmemory.md:47
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | G1 | ❌ Failed |
+
+198. playbookmemory.md:47
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | G1 | ❌ Failed
+   Line: | G1 | ❌ Failed |
+
+199. playbookmemory.md:48
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | G2 | ❌ Failed |
+
+200. playbookmemory.md:48
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | G2 | ❌ Failed |
+
+201. playbookmemory.md:48
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | G2 | ❌ Failed
+   Line: | G2 | ❌ Failed |
+
+202. playbookmemory.md:53
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: Catastrophic startup failure
+   Line: - **Classification:** Catastrophic startup failure.
+
+203. playbookmemory.md:63
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | G0 | ❌ Failed |
+
+204. playbookmemory.md:63
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | G0 | ❌ Failed |
+
+205. playbookmemory.md:63
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | G0 | ❌ Failed
+   Line: | G0 | ❌ Failed |
+
+206. playbookmemory.md:64
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Bypassed |
+   Line: | G1 | ❌ Bypassed |
+
+207. playbookmemory.md:65
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Bypassed |
+   Line: | G2 | ❌ Bypassed |
+
+208. playbookmemory.md:99
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed — irretrievable |
+   Line: | 2025-08-25 | Origin Mark must use metadata | Wrong stamp | ❌ Failed — irretrievable | Playbook §18 |
+
+209. playbookmemory.md:99
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | 2025-08-25 | Origin Mark must use metadata | Wrong stamp | ❌ Failed — irretrievable | Playbook §18 |
+
+210. playbookmemory.md:99
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | Wrong stamp | ❌ Failed
+   Line: | 2025-08-25 | Origin Mark must use metadata | Wrong stamp | ❌ Failed — irretrievable | Playbook §18 |
+
+211. playbookmemory.md:99
+   Pattern: \d{4}-\d{2}-\d{2}.*[Ff]ailed?
+   Match: 2025-08-25 | Origin Mark must use metadata | Wrong stamp | ❌ Failed
+   Line: | 2025-08-25 | Origin Mark must use metadata | Wrong stamp | ❌ Failed — irretrievable | Playbook §18 |
+
+212. playbookmemory.md:99
+   Pattern: \d{4}-\d{2}-\d{2}.*❌
+   Match: 2025-08-25 | Origin Mark must use metadata | Wrong stamp | ❌
+   Line: | 2025-08-25 | Origin Mark must use metadata | Wrong stamp | ❌ Failed — irretrievable | Playbook §18 |
+
+213. playbookmemory.md:149
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | Origin Mark unrecoverable | Datestamp lost | Metadata absent | Cannot recover | Audit cross-check | ❌ Failed |
+
+214. playbookmemory.md:149
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | Origin Mark unrecoverable | Datestamp lost | Metadata absent | Cannot recover | Audit cross-check | ❌ Failed |
+
+215. playbookmemory.md:149
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | Audit cross-check | ❌ Failed
+   Line: | Origin Mark unrecoverable | Datestamp lost | Metadata absent | Cannot recover | Audit cross-check | ❌ Failed |
+
+216. playbookmemory.md:170
+   Pattern: \d{4}-\d{2}-\d{2}.*❌
+   Match: 2025-08-25):** Origin Mark failure (❌
+   Line: - **Session 12 (2025-08-25):** Origin Mark failure (❌ unrecoverable), Emergency ZIP/P0 logging issues surfaced.
+
+217. playbookmemory.md:22
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 2025-08-21 | Gate cascade fail | Gates skipped | Sequential enforcement not coded | Reordered enforcement | “Canon update” | ✅ Fixed |
+
+218. playbookmemory.md:30
+   Pattern: table_failure
+   Match: ❌
+   Line: | 2025-08-25 | Incorrect Origin Mark | Wrong timestamp given | Used clock instead of metadata | Must always pull first-message metadata | “Ok. here is what I want to know…” | ❌ Failed — data irretrievably lost |
+
+219. playbookmemory.md:46
+   Pattern: table_failure
+   Match: ❌
+   Line: | G0 | ❌ Not defined |
+
+220. playbookmemory.md:47
+   Pattern: table_failure
+   Match: ❌
+   Line: | G1 | ❌ Failed |
+
+221. playbookmemory.md:48
+   Pattern: table_failure
+   Match: ❌
+   Line: | G2 | ❌ Failed |
+
+222. playbookmemory.md:63
+   Pattern: table_failure
+   Match: ❌
+   Line: | G0 | ❌ Failed |
+
+223. playbookmemory.md:64
+   Pattern: table_failure
+   Match: ❌
+   Line: | G1 | ❌ Bypassed |
+
+224. playbookmemory.md:65
+   Pattern: table_failure
+   Match: ❌
+   Line: | G2 | ❌ Bypassed |
+
+225. playbookmemory.md:99
+   Pattern: table_failure
+   Match: ❌
+   Line: | 2025-08-25 | Origin Mark must use metadata | Wrong stamp | ❌ Failed — irretrievable | Playbook §18 |
+
+226. playbookmemory.md:149
+   Pattern: table_failure
+   Match: ❌
+   Line: | Origin Mark unrecoverable | Datestamp lost | Metadata absent | Cannot recover | Audit cross-check | ❌ Failed |
+
+227. playbookmemory.md:214
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 90% | Severe degradation | High risk of catastrophic gate bypass |
+
+228. postmeltdownstabilization.md:5
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 FAILURE
+   Line: ### 1. ALL P0 FAILURES (COMPLETE TABLE)
+
+229. postmeltdownstabilization.md:22
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: CATASTROPHIC FAILURE
+   Line: ### 2. ALL CATASTROPHIC FAILURES (CF-1 through CF-X)
+
+230. postmeltdownstabilization.md:141
+   Pattern: [Ss]ystemic.*[Ff]ailure
+   Match: systemic failure
+   Line: **Conclusion:** SilentStacks sessions degrade predictably with token utilization. At ~85% usage, reliability collapses, leading to systemic failure unless Gate 0/Flush engages. Canon now codifies watchdog + removal of CT.gov to prevent recurrence.
+
+231. postmeltdownstabilization.md:26
+   Pattern: table_failure
+   Match: FAILED
+   Line: | CF-1 | **Earlier v2.0 session (pre-Aug 20)** — catastrophic meltdown when CT.gov watchdog failed, memory ballooned ~850 MB, Step G loops triggered. | Gate 0 failed (Operational Stability breach); Gate 1–3 skipped; Gate 4 attempted with broken state. | SHA checksums invalid (file audit failed). | Emergency wind-down; operator flush; canon later updated (CT.gov linkout-only → removal). | **Classification:** Systemic meltdown. **Impact:** Full enrichment collapse, browser instability. **Recovery:** Manual flush, Playbook canon updates. **Prevention:** CT.gov removed; watchdog canon enforced. |
+
+232. silentstacksfullpackage.md:5
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 FAILURE
+   Line: ## 1. ALL P0 FAILURES (COMPLETE TABLE)
+
+233. silentstacksfullpackage.md:13
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Catastrophic — locked at Gate-0 |
+   Line: | 2025-08-24  | Gate-4 Flush | Flush executed without canonical operator prompt | Procedural neglect — skipped Gate-4 approval | Logged as catastrophic; Recovery Mode engaged; RCA produced | “Did you prompt me to flush the system? … No — I did not canonically prompt” | ❌ Catastrophic — locked at Gate-0 |
+
+234. silentstacksfullpackage.md:13
+   Pattern: \d{4}-\d{2}-\d{2}.*❌
+   Match: 2025-08-24  | Gate-4 Flush | Flush executed without canonical operator prompt | Procedural neglect — skipped Gate-4 approval | Logged as catastrophic; Recovery Mode engaged; RCA produced | “Did you prompt me to flush the system? … No — I did not canonically prompt” | ❌
+   Line: | 2025-08-24  | Gate-4 Flush | Flush executed without canonical operator prompt | Procedural neglect — skipped Gate-4 approval | Logged as catastrophic; Recovery Mode engaged; RCA produced | “Did you prompt me to flush the system? … No — I did not canonically prompt” | ❌ Catastrophic — locked at Gate-0 |
+
+235. silentstacksfullpackage.md:17
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: CATASTROPHIC FAILURE
+   Line: ## 2. ALL CATASTROPHIC FAILURES
+
+236. silentstacksfullpackage.md:60
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 failure
+   Line: | 2025-08-22 | Stub = P0 failure; auto-repair mandated | Wind-Down stub detected | ✅ Enforced | Playbook §13, Wind-Down doc |
+
+237. silentstacksfullpackage.md:72
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Invalidated |
+   Line: | Gate-1 | ❌ Invalidated | Unauthorized flush event | Must replay baseline validation | 2025-08-24 08:40 |
+
+238. silentstacksfullpackage.md:73
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Invalidated |
+   Line: | Gate-2 | ❌ Invalidated | TOC/link audits stale | Re-run audits, placeholder scan | 2025-08-24 08:40 |
+
+239. silentstacksfullpackage.md:74
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Invalidated |
+   Line: | Gate-3 | ❌ Invalidated | Regression matrix stale | Re-run regression tests | 2025-08-24 08:40 |
+
+240. silentstacksfullpackage.md:75
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Unauthorized execution |
+   Line: | Gate-4 | ❌ Unauthorized execution | Flush ran without prompt | Lock enforced, must replay with approval | 2025-08-24 08:41 |
+
+241. silentstacksfullpackage.md:91
+   Pattern: [Ss]ystemic.*[Ff]ailure
+   Match: Systemic_Failure
+   Line: - Systemic_Failures_Log.md
+
+242. silentstacksfullpackage.md:117
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Catastrophic, pending concurrence |
+   Line: | Unauthorized Flush | Gate-4 prompt skipped | Procedural neglect | Recovery Mode, Gate-0 lock, RCA logging | Review continuity + Playbook | ❌ Catastrophic, pending concurrence |
+
+243. silentstacksfullpackage.md:172
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: Catastrophic failure
+   Line: | >85% | Catastrophic failure likely | Requires Emergency Wind-Down |
+
+244. silentstacksfullpackage.md:13
+   Pattern: table_failure
+   Match: ❌
+   Line: | 2025-08-24  | Gate-4 Flush | Flush executed without canonical operator prompt | Procedural neglect — skipped Gate-4 approval | Logged as catastrophic; Recovery Mode engaged; RCA produced | “Did you prompt me to flush the system? … No — I did not canonically prompt” | ❌ Catastrophic — locked at Gate-0 |
+
+245. silentstacksfullpackage.md:63
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 2025-08-24 | Catastrophic events require RCA + table | Unauthorized Flush | ✅ Implemented | Playbook §13, continuity.md, Gate-0 README |
+
+246. silentstacksfullpackage.md:117
+   Pattern: table_failure
+   Match: ❌
+   Line: | Unauthorized Flush | Gate-4 prompt skipped | Procedural neglect | Recovery Mode, Gate-0 lock, RCA logging | Review continuity + Playbook | ❌ Catastrophic, pending concurrence |
+
+247. testingai.md:5
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 FAILURE
+   Line: ## 1. ALL P0 FAILURES (COMPLETE TABLE)
+
+248. testingai.md:14
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | 2025-08-24T20:40:00Z | Origin timestamps | Session origin timestamps missing | Interpreter resets & session drift | Canon updated: log “Unknown; data loss” explicitly | Canonical Behavior Display table | ❌ Failed |
+
+249. testingai.md:14
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | 2025-08-24T20:40:00Z | Origin timestamps | Session origin timestamps missing | Interpreter resets & session drift | Canon updated: log “Unknown; data loss” explicitly | Canonical Behavior Display table | ❌ Failed |
+
+250. testingai.md:14
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | Canonical Behavior Display table | ❌ Failed
+   Line: | 2025-08-24T20:40:00Z | Origin timestamps | Session origin timestamps missing | Interpreter resets & session drift | Canon updated: log “Unknown; data loss” explicitly | Canonical Behavior Display table | ❌ Failed |
+
+251. testingai.md:14
+   Pattern: \d{4}-\d{2}-\d{2}.*[Ff]ailed?
+   Match: 2025-08-24T20:40:00Z | Origin timestamps | Session origin timestamps missing | Interpreter resets & session drift | Canon updated: log “Unknown; data loss” explicitly | Canonical Behavior Display table | ❌ Failed
+   Line: | 2025-08-24T20:40:00Z | Origin timestamps | Session origin timestamps missing | Interpreter resets & session drift | Canon updated: log “Unknown; data loss” explicitly | Canonical Behavior Display table | ❌ Failed |
+
+252. testingai.md:14
+   Pattern: \d{4}-\d{2}-\d{2}.*❌
+   Match: 2025-08-24T20:40:00Z | Origin timestamps | Session origin timestamps missing | Interpreter resets & session drift | Canon updated: log “Unknown; data loss” explicitly | Canonical Behavior Display table | ❌
+   Line: | 2025-08-24T20:40:00Z | Origin timestamps | Session origin timestamps missing | Interpreter resets & session drift | Canon updated: log “Unknown; data loss” explicitly | Canonical Behavior Display table | ❌ Failed |
+
+253. testingai.md:19
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: CATASTROPHIC FAILURE
+   Line: ## 2. ALL CATASTROPHIC FAILURES (CF-1 through CF-X)
+
+254. testingai.md:25
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: catastrophic failure
+   Line: - 2025-08-24T19:20:00Z: User flagged catastrophic failure.
+
+255. testingai.md:34
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ FAIL |
+   Line: | Intake (expected auto-engage) | ❌ FAIL | N/A | N/A | N/A |
+
+256. testingai.md:35
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ FAIL |
+   Line: | Recovery step 1 | ✅ PASS | ✅ PASS | ❌ FAIL | ❌ FAIL |
+
+257. testingai.md:49
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: Catastrophic Failure
+   Line: - **Classification**: P0 Catastrophic Failure
+
+258. testingai.md:80
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ NOT IMPLEMENTED IN CANON |
+   Line: | G4   | ❌ NOT IMPLEMENTED IN CANON | Gate 4 not defined in v2.1 | Define/deprecate in next version | N/A |
+
+259. testingai.md:131
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | Missing origin timestamps | Session origins not logged | Interpreter resets | Canon updated to log “Unknown; data loss” | Canonical Behavior Display | ❌ Failed |
+
+260. testingai.md:131
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | Missing origin timestamps | Session origins not logged | Interpreter resets | Canon updated to log “Unknown; data loss” | Canonical Behavior Display | ❌ Failed |
+
+261. testingai.md:131
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | Canonical Behavior Display | ❌ Failed
+   Line: | Missing origin timestamps | Session origins not logged | Interpreter resets | Canon updated to log “Unknown; data loss” | Canonical Behavior Display | ❌ Failed |
+
+262. testingai.md:188
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: Catastrophic Failure
+   Line: | 2025-08-24T19:15:16Z | Catastrophic Failure | ~85% | Continuity breach, Gate 0 skipped | Catastrophic CF-1 | Catastrophic |
+
+263. testingai.md:14
+   Pattern: table_failure
+   Match: ❌
+   Line: | 2025-08-24T20:40:00Z | Origin timestamps | Session origin timestamps missing | Interpreter resets & session drift | Canon updated: log “Unknown; data loss” explicitly | Canonical Behavior Display table | ❌ Failed |
+
+264. testingai.md:66
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 2025-08-24 | G3 doc normalization (H1, v2.1, Next Steps) | G3 fails | Implemented | Run_Card_v2.1.md |
+
+265. testingai.md:67
+   Pattern: table_failure
+   Match: FAILED
+   Line: | 2025-08-24 | Catastrophic recovery loop | P0 catastrophic | Implemented | Wind_Down_Report.md |
+
+266. testingai.md:125
+   Pattern: table_failure
+   Match: FAILED
+   Line: | Gate 0 intake miss | Intake audit skipped | Auto-engage not firing | Manual Catastrophic Recovery loop | Gate 0 audit rerun | ✅ Fixed |
+
+267. testingai.md:130
+   Pattern: table_failure
+   Match: FAILED
+   Line: | Catastrophic continuity breach | Session advanced without baseline | Gate 0 miss | Catastrophic Recovery loop | Gate cycle full PASS | ✅ Fixed |
+
+268. testingai.md:131
+   Pattern: table_failure
+   Match: ❌
+   Line: | Missing origin timestamps | Session origins not logged | Interpreter resets | Canon updated to log “Unknown; data loss” | Canonical Behavior Display | ❌ Failed |
+
+269. wind-down-stepg.md:5
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 FAILURE
+   Line: ## 1. ALL P0 FAILURES (COMPLETE TABLE)
+
+270. wind-down-stepg.md:12
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 failure
+   Line: | 2025-08-23T10:05Z  | Session Origin Loss                  | Several chat sessions had no origin date stamp                                                 | Data loss in session metadata                                        | Marked as P0 failure; no recovery possible                                                           | Missing timestamps in ChatSession2.md                                                                | ❌ Failed |
+
+271. wind-down-stepg.md:12
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | 2025-08-23T10:05Z  | Session Origin Loss                  | Several chat sessions had no origin date stamp                                                 | Data loss in session metadata                                        | Marked as P0 failure; no recovery possible                                                           | Missing timestamps in ChatSession2.md                                                                | ❌ Failed |
+
+272. wind-down-stepg.md:12
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | 2025-08-23T10:05Z  | Session Origin Loss                  | Several chat sessions had no origin date stamp                                                 | Data loss in session metadata                                        | Marked as P0 failure; no recovery possible                                                           | Missing timestamps in ChatSession2.md                                                                | ❌ Failed |
+
+273. wind-down-stepg.md:12
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | Missing timestamps in ChatSession2.md                                                                | ❌ Failed
+   Line: | 2025-08-23T10:05Z  | Session Origin Loss                  | Several chat sessions had no origin date stamp                                                 | Data loss in session metadata                                        | Marked as P0 failure; no recovery possible                                                           | Missing timestamps in ChatSession2.md                                                                | ❌ Failed |
+
+274. wind-down-stepg.md:12
+   Pattern: \d{4}-\d{2}-\d{2}.*[Ff]ailed?
+   Match: 2025-08-23T10:05Z  | Session Origin Loss                  | Several chat sessions had no origin date stamp                                                 | Data loss in session metadata                                        | Marked as P0 failure; no recovery possible                                                           | Missing timestamps in ChatSession2.md                                                                | ❌ Failed
+   Line: | 2025-08-23T10:05Z  | Session Origin Loss                  | Several chat sessions had no origin date stamp                                                 | Data loss in session metadata                                        | Marked as P0 failure; no recovery possible                                                           | Missing timestamps in ChatSession2.md                                                                | ❌ Failed |
+
+275. wind-down-stepg.md:12
+   Pattern: \d{4}-\d{2}-\d{2}.*❌
+   Match: 2025-08-23T10:05Z  | Session Origin Loss                  | Several chat sessions had no origin date stamp                                                 | Data loss in session metadata                                        | Marked as P0 failure; no recovery possible                                                           | Missing timestamps in ChatSession2.md                                                                | ❌
+   Line: | 2025-08-23T10:05Z  | Session Origin Loss                  | Several chat sessions had no origin date stamp                                                 | Data loss in session metadata                                        | Marked as P0 failure; no recovery possible                                                           | Missing timestamps in ChatSession2.md                                                                | ❌ Failed |
+
+276. wind-down-stepg.md:15
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | 2025-08-26T12:00Z  | Data Loss                            | Evidence transcripts missing creation timestamps                                               | Corrupted or incomplete capture                                      | Logged as Data Loss; cannot be restored                                                              | Evidence/ChatSession logs                                                                            | ❌ Failed |
+
+277. wind-down-stepg.md:15
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | 2025-08-26T12:00Z  | Data Loss                            | Evidence transcripts missing creation timestamps                                               | Corrupted or incomplete capture                                      | Logged as Data Loss; cannot be restored                                                              | Evidence/ChatSession logs                                                                            | ❌ Failed |
+
+278. wind-down-stepg.md:15
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | Evidence/ChatSession logs                                                                            | ❌ Failed
+   Line: | 2025-08-26T12:00Z  | Data Loss                            | Evidence transcripts missing creation timestamps                                               | Corrupted or incomplete capture                                      | Logged as Data Loss; cannot be restored                                                              | Evidence/ChatSession logs                                                                            | ❌ Failed |
+
+279. wind-down-stepg.md:15
+   Pattern: \d{4}-\d{2}-\d{2}.*[Ff]ailed?
+   Match: 2025-08-26T12:00Z  | Data Loss                            | Evidence transcripts missing creation timestamps                                               | Corrupted or incomplete capture                                      | Logged as Data Loss; cannot be restored                                                              | Evidence/ChatSession logs                                                                            | ❌ Failed
+   Line: | 2025-08-26T12:00Z  | Data Loss                            | Evidence transcripts missing creation timestamps                                               | Corrupted or incomplete capture                                      | Logged as Data Loss; cannot be restored                                                              | Evidence/ChatSession logs                                                                            | ❌ Failed |
+
+280. wind-down-stepg.md:15
+   Pattern: \d{4}-\d{2}-\d{2}.*❌
+   Match: 2025-08-26T12:00Z  | Data Loss                            | Evidence transcripts missing creation timestamps                                               | Corrupted or incomplete capture                                      | Logged as Data Loss; cannot be restored                                                              | Evidence/ChatSession logs                                                                            | ❌
+   Line: | 2025-08-26T12:00Z  | Data Loss                            | Evidence transcripts missing creation timestamps                                               | Corrupted or incomplete capture                                      | Logged as Data Loss; cannot be restored                                                              | Evidence/ChatSession logs                                                                            | ❌ Failed |
+
+281. wind-down-stepg.md:19
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: CATASTROPHIC FAILURE
+   Line: ## 2. ALL CATASTROPHIC FAILURES (CF-1 through CF-X)
+
+282. wind-down-stepg.md:21
+   Pattern: [Cc]atastrophic.*[Ff]ailure
+   Match: Catastrophic Gate Failure
+   Line: ### CF-1 — Catastrophic Gate Failure (v2.0 → v2.1 Migration)
+
+283. wind-down-stepg.md:105
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌ Failed |
+   Line: | Session origin missing             | No origin stamps in some transcripts                                          | Data loss                             | Marked as irrecoverable, logged as P0                 | Session review, ChatSession files          | ❌ Failed |
+
+284. wind-down-stepg.md:105
+   Pattern: ❌.*[Ff]ailed?
+   Match: ❌ Failed
+   Line: | Session origin missing             | No origin stamps in some transcripts                                          | Data loss                             | Marked as irrecoverable, logged as P0                 | Session review, ChatSession files          | ❌ Failed |
+
+285. wind-down-stepg.md:105
+   Pattern: \|\s*[^|]*\|\s*❌\s*[Ff]ailed
+   Match: | Session review, ChatSession files          | ❌ Failed
+   Line: | Session origin missing             | No origin stamps in some transcripts                                          | Data loss                             | Marked as irrecoverable, logged as P0                 | Session review, ChatSession files          | ❌ Failed |
+
+286. wind-down-stepg.md:112
+   Pattern: \d{4}-\d{2}-\d{2}.*[Ff]ailed?
+   Match: 2025-08-22):** Step G loop failed
+   Line: - **Session 2 (2025-08-22):** Step G loop failed 4 times. Emergency shutdown triggered.
+
+287. wind-down-stepg.md:159
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 Failure
+   Line: | Date/Time       | Usage Level | Observed Behavior                                                                  | P0 Failures Triggered                          | Corrective Action                                                      | Status |
+
+288. wind-down-stepg.md:164
+   Pattern: P0\s+[Ff]ailure
+   Match: P0 failure
+   Line: | 2025-09-05 10:00| 85%         | Severe degradation; hallucinations and omissions appear consistently              | Multiple P0 failures: truncated outputs, missing audit sections | Canon safety engaged: Gate 0 rehydration + Wind Down Step G enforcement | ❌     |
+
+289. wind-down-stepg.md:164
+   Pattern: \|\s*❌[^|]*\|
+   Match: | ❌     |
+   Line: | 2025-09-05 10:00| 85%         | Severe degradation; hallucinations and omissions appear consistently              | Multiple P0 failures: truncated outputs, missing audit sections | Canon safety engaged: Gate 0 rehydration + Wind Down Step G enforcement | ❌     |
+
+290. wind-down-stepg.md:164
+   Pattern: \d{4}-\d{2}-\d{2}.*❌
+   Match: 2025-09-05 10:00| 85%         | Severe degradation; hallucinations and omissions appear consistently              | Multiple P0 failures: truncated outputs, missing audit sections | Canon safety engaged: Gate 0 rehydration + Wind Down Step G enforcement | ❌
+   Line: | 2025-09-05 10:00| 85%         | Severe degradation; hallucinations and omissions appear consistently              | Multiple P0 failures: truncated outputs, missing audit sections | Canon safety engaged: Gate 0 rehydration + Wind Down Step G enforcement | ❌     |
+
+291. wind-down-stepg.md:165
+   Pattern: [Ss]ystemic.*[Ff]ailure
+   Match: systemic failure emerges across sessions when above 85% threshold | CF-linked temporal inconsistencies             | Logged as predictable failure
+   Line: | 2025-09-06 07:00| 85%         | Repeat pattern: systemic failure emerges across sessions when above 85% threshold | CF-linked temporal inconsistencies             | Logged as predictable failure mode; regression added to Worst Case Scenarios | ⏳     |
+
+292. wind-down-stepg.md:173
+   Pattern: [Ss]ystemic.*[Ff]ailure
+   Match: Systemic Failure
+   Line: - Incorporated into **Worst Case Scenarios (Playbook §15)** and **Systemic Failures Log (Playbook §13)**.
+
+293. wind-down-stepg.md:105
+   Pattern: table_failure
+   Match: ❌
+   Line: | Session origin missing             | No origin stamps in some transcripts                                          | Data loss                             | Marked as irrecoverable, logged as P0                 | Session review, ChatSession files          | ❌ Failed |
+
