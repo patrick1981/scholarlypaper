@@ -19,7 +19,7 @@
     "# %% [markdown]\n",
     "# # Combined Token Degradation Analysis\n",
     "# \n",
-    "# **Dataset**: 9 Claude sessions + 18 ChatGPT workup sessions = **n = 27 total sessions**\n",
+    "# **Dataset**:  Claude sessions + 18 ChatGPT workup sessions = **n = 27 total sessions**\n",
     "# \n",
     "# **Focus**: Token usage patterns and degradation across both AI systems\n",
     "# \n",
