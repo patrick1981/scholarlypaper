@@ -1,0 +1,219 @@
+{
+    'session': 1.0,
+    'date': '2025-09-02', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 65,
+    'observed_tdt': 65,
+    'evidence': 'Review of Instructions - active degradation'
+},
+
+
+
+{
+    'session': 2.0,
+    'date': '2025-09-03', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 70,
+    'observed_tdt': 70,
+    'evidence': 'File Resync and Access - minor slowdowns'
+},
+
+
+
+{
+    'session': 3.0,
+    'date': '2025-09-04', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 76,
+    'observed_tdt': 76,
+    'evidence': 'Token management failure, 850MB shutdown ignored'
+},
+
+
+
+{
+    'session': 4.0,
+    'date': '2025-09-05', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 70,
+    'observed_tdt': 70,
+    'evidence': 'Standard session performance, minor issues'
+},
+
+
+
+{
+    'session': 5.0,
+    'date': '2025-09-06', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 85,
+    'observed_tdt': 99,
+    'evidence': 'RF-001: Statistical fabrication, reputational fatality risk'
+},
+
+
+
+{
+    'session': 6.0,
+    'date': '2025-09-07', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 42,
+    'observed_tdt': 42,
+    'evidence': 'Session 6: Critical threshold breach below 65%'
+},
+
+
+
+{
+    'session': 7.0,
+    'date': '2025-09-07', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 40,
+    'observed_tdt': 85,
+    'evidence': 'Session 2 continuation - catastrophic degradation'
+},
+
+
+
+{
+    'session': 8.0,
+    'date': '2025-09-07', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 80,
+    'observed_tdt': 89,
+    'evidence': 'Session 7 - entering catastrophic degradation zone'
+},
+
+
+
+{
+    'session': 9.0,
+    'date': '2025-09-08', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 90,
+    'observed_tdt': 90,
+    'evidence': 'Problem Statement Revision - critical violations'
+},
+
+
+
+{
+    'session': 10.0,
+    'date': '2025-09-08', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 75,
+    'observed_tdt': 75,
+    'evidence': 'BMJ Paper Research - data fabrication begins'
+},
+
+
+
+{
+    'session': 11.0,
+    'date': '2025-09-09', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 80,
+    'observed_tdt': 80,
+    'evidence': 'BMJ Methodology - memory fragmentation'
+},
+
+
+
+{
+    'session': 12.0,
+    'date': '2025-09-09', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 25,
+    'observed_tdt': 75,
+    'evidence': 'Research Methodology - fabricating data/statistics'
+},
+
+
+
+{
+    'session': 13.0,
+    'date': '2025-09-09', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 80,
+    'observed_tdt': 80,
+    'evidence': 'Handoff File Analysis - memory fragmentation'
+},
+
+
+
+{
+    'session': 14.0,
+    'date': '2025-09-10', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 35,
+    'observed_tdt': 70,
+    'evidence': 'AI Session Chronology - minor slowdowns, 35% error'
+},
+
+
+
+{
+    'session': 15.0,
+    'date': '2025-09-10', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 15,
+    'observed_tdt': 65,
+    'evidence': 'AI Session Tracking - 50% error, active degradation'
+},
+
+
+
+{
+    'session': 16.0,
+    'date': '2025-09-10', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 75,
+    'observed_tdt': 75,
+    'evidence': 'TDT Data Analysis - token blindness confirmed'
+},
+
+
+
+{
+    'session': 17.0,
+    'date': '2025-09-10', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 40,
+    'observed_tdt': 75,
+    'evidence': 'Prompt vs ic - data fabrication patterns'
+},
+
+
+
+{
+    'session': 18.0,
+    'date': '2025-09-10', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 90,
+    'observed_tdt': 90,
+    'evidence': 'Token Degradation Protocol - critical violations'
+},
+
+
+
+{
+    'session': 19.0,
+    'date': '2025-09-11', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 25,
+    'observed_tdt': 75,
+    'evidence': 'Token Degradation Extraction - P0 Failure #003'
+},
+
+
+
+{
+    'session': 20.0,
+    'date': '2025-09-12', 
+    'ai_system': 'Claude',
+    'claimed_tdt': 22,
+    'observed_tdt': 75,
+    'evidence': 'Current extraction session - fabricating data/statistics'
+}
+
+]
