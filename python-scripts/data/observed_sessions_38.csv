@@ -1,31 +1,39 @@
-session,date,ai_system,claimed_tdt,observed_tdt,evidence,source
-1,2025-09-02,Claude,,65,Session functioned normally discovered Byzantine failure patterns,claudeai-tdt.json
-2,2025-09-04,Claude,50,65,Normal operation discovered token blindness pattern,claudeai-tdt.json
-3,2025-09-04,Claude,55,70,Systematic failure cannot maintain compliance while analyzing compliance failures,claudeai-tdt.json
-4,2025-09-05,Claude,75,85,RF-001: Fabricated 115 P0s that dont exist built entire Chi-Square analysis on fake data,claudeai-tdt.json
-5,2025-09-05,Claude,80,85,RF-001 incident would have destroyed academic credibility if published,claudeai-tdt.json
-6,2025-09-06,Claude,15,65,Safe operating zone documented RF-001 loss,claudeai-tdt.json
-7,2025-09-07,Claude,85,85,CATASTROPHIC FAILURE ZONE reliability compromised,claudeai-tdt.json
-8,2025-09-07,Claude,90,90,Could not track session numbers temporal confusion required 5+ corrections,claudeai-tdt.json
-9,2025-09-09,Claude,65,65,Calendar arithmetic failure generated invalid dates like 2025-08-38,claudeai-tdt.json
-10,2025-09-08,Claude,40,65,Ground truth established 290 P0 failures definitively counted,claudeai-tdt.json
-11,2025-09-08,Claude,5,65,Fresh session comprehensive P0 failure database analyzed,claudeai-tdt.json
-12,2025-08-20,ChatGPT,,75,Truncated markdown outputs and incomplete blocks,CHATGPT TDT File.json
-13,2025-08-21,ChatGPT,,80,Fabricated gate paradox examples confusion evident,CHATGPT TDT File.json
-14,2025-08-22,ChatGPT,,85,CF-1 catastrophic failure gate bypass and flush,CHATGPT TDT File.json
-15,2025-08-23,ChatGPT,,85,Reports missing markdown fences critical omissions,CHATGPT TDT File.json
-16,2025-08-24,ChatGPT,,90,Unauthorized flush catastrophic gate bypass,CHATGPT TDT File.json
-17,2025-08-25,ChatGPT,,80,Gate confusion markdown not applied fully,CHATGPT TDT File.json
-18,2025-08-26,ChatGPT,,85,Temporal-Inconsistency-Audit severe state loss,CHATGPT TDT File.json
-19,2025-08-27,ChatGPT,,80,Mermaid/LaTeX diagrams overlapping and corrupted,CHATGPT TDT File.json
-20,2025-08-29,ChatGPT,,80,Skipped regression matrix despite Gate 3 requirement,CHATGPT TDT File.json
-21,2025-08-30,ChatGPT,,85,Spin-up/wind-down conflation major gate violation,CHATGPT TDT File.json
-22,2025-08-31,ChatGPT,,85,Byzantine failure draft contained stub files,CHATGPT TDT File.json
-23,2025-09-01,ChatGPT,,85,RCA skipped for P0/CF failures,CHATGPT TDT File.json
-24,2025-09-02,ChatGPT,,80,Deviation table truncated missing early sessions,CHATGPT TDT File.json
-25,2025-09-04,ChatGPT,,80,Step-G section missing markdown block,CHATGPT TDT File.json
-26,2025-09-05,ChatGPT,,80,Statistical analysis inconsistent degraded rigor,CHATGPT TDT File.json
-27,2025-09-06,ChatGPT,,85,Failure study form omitted GAAP rigor,CHATGPT TDT File.json
-28,2025-09-07,ChatGPT,,85,Markdown wrapping failures and ignored gates,CHATGPT TDT File.json
-29,2025-09-08,ChatGPT,,75,Poster presentation output lacked academic depth,CHATGPT TDT File.json
-30,2025-09-09,ChatGPT,,70,Handoff file summary only partially extracted,CHATGPT TDT File.json
+session,date,ai_system,claimed_tdt,observed_tdt,p0_estimate,evidence,citation
+1,2025-09-02,Claude,65,65,2,Review of Instructions - active degradation,PTDTMAnalyzer.py line 35
+2,2025-09-03,Claude,70,70,3,File Resync and Access - minor slowdowns,PTDTMAnalyzer.py line 36
+3,2025-09-04,Claude,76,76,5,Token management failure 850MB shutdown ignored,PTDTMAnalyzer.py line 37
+4,2025-09-05,Claude,70,70,3,Standard session performance minor issues,PTDTMAnalyzer.py line 38
+5,2025-09-06,Claude,85,99,25,RF-001: Statistical fabrication reputational fatality risk,PTDTMAnalyzer.py line 39
+6,2025-09-07,Claude,42,42,0,Session 6: Critical threshold breach below 65%,PTDTMAnalyzer.py line 40
+7,2025-09-07,Claude,40,85,12,Session 2 continuation - catastrophic degradation,PTDTMAnalyzer.py line 41
+8,2025-09-07,Claude,80,89,15,Session 7 - entering catastrophic degradation zone,PTDTMAnalyzer.py line 42
+9,2025-09-08,Claude,90,90,18,Problem Statement Revision - critical violations,PTDTMAnalyzer.py line 43
+10,2025-09-08,Claude,75,75,4,BMJ Paper Research - data fabrication begins,PTDTMAnalyzer.py line 44
+11,2025-09-09,Claude,80,80,6,BMJ Methodology - memory fragmentation,PTDTMAnalyzer.py line 45
+12,2025-09-09,Claude,25,75,4,Research Methodology - fabricating data/statistics,PTDTMAnalyzer.py line 46
+13,2025-09-09,Claude,80,80,6,Handoff File Analysis - memory fragmentation,PTDTMAnalyzer.py line 47
+14,2025-09-10,Claude,35,70,3,AI Session Chronology - minor slowdowns 35% error,PTDTMAnalyzer.py line 48
+15,2025-09-10,Claude,15,65,2,AI Session Tracking - 50% error active degradation,PTDTMAnalyzer.py line 49
+16,2025-09-10,Claude,75,75,4,TDT Data Analysis - token blindness confirmed,PTDTMAnalyzer.py line 50
+17,2025-09-10,Claude,40,75,4,Prompt vs ic - data fabrication patterns,PTDTMAnalyzer.py line 51
+18,2025-09-10,Claude,90,90,18,Token Degradation Protocol - critical violations,PTDTMAnalyzer.py line 52
+19,2025-09-11,Claude,25,75,4,Token Degradation Extraction - P0 Failure #003,PTDTMAnalyzer.py line 53
+20,2025-09-12,Claude,22,75,4,Current extraction session - fabricating data/statistics,PTDTMAnalyzer.py line 54
+21,2025-08-20,ChatGPT,75,75,4,Fabricated session counts and inconsistent token extraction,PTDTMAnalyzer.py line 56
+22,2025-08-21,ChatGPT,70,70,3,Minor slowdowns noted in document preparation,PTDTMAnalyzer.py line 57
+23,2025-08-22,ChatGPT,85,85,12,Severe confusion during CF-1 extraction memory fragmentation,PTDTMAnalyzer.py line 58
+24,2025-08-23,ChatGPT,90,90,18,Critical violations: skipped markdown dropped CF-4,PTDTMAnalyzer.py line 59
+25,2025-08-24,ChatGPT,93,93,20,Unauthorized flush catastrophic documentation loss,PTDTMAnalyzer.py line 60
+26,2025-08-25,ChatGPT,75,75,4,Output stubs instead of full markdown sections 10-11,PTDTMAnalyzer.py line 61
+27,2025-08-29,ChatGPT,70,70,3,Mostly followed instructions required format correction,PTDTMAnalyzer.py line 62
+28,2025-08-31,ChatGPT,80,80,6,Confusion on Byzantine failures partial recall,PTDTMAnalyzer.py line 63
+29,2025-09-01,ChatGPT,85,85,12,RCA request produced incomplete coverage of failures,PTDTMAnalyzer.py line 64
+30,2025-09-02,ChatGPT,90,90,18,Protocol deviation table truncated timestamp mismatch,PTDTMAnalyzer.py line 65
+31,2025-09-04,ChatGPT,70,70,3,Generated statistical analysis in LaTeX and Mermaid,PTDTMAnalyzer.py line 66
+32,2025-09-05,ChatGPT,75,75,4,Bayes theorem analysis created required corrections,PTDTMAnalyzer.py line 67
+33,2025-09-06,ChatGPT,80,80,6,Confusion about RF-001 failure memory drift,PTDTMAnalyzer.py line 68
+34,2025-09-07,ChatGPT,85,85,12,Step-G phenomenon markdown dropped wrapping,PTDTMAnalyzer.py line 69
+35,2025-09-08,ChatGPT,70,70,3,Poster presentation request for PTDTM handled,PTDTMAnalyzer.py line 70
+36,2025-09-09,ChatGPT,95,95,30,Attempted state extraction collapsed 290+ P0s breakdown,PTDTMAnalyzer.py line 71
+37,2025-09-10,ChatGPT,85,85,12,Token degradation analysis truncated dataset incomplete,PTDTMAnalyzer.py line 72
+38,2025-09-11,ChatGPT,75,75,4,Token degradation extraction dataset inconsistent,PTDTMAnalyzer.py line 73
