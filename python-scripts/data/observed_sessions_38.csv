@@ -3,7 +3,7 @@ session,date,ai_system,claimed_tdt,observed_tdt,p0_estimate,evidence,citation
 2,2025-09-03,Claude,70,70,3,File Resync and Access - minor slowdowns,PTDTMAnalyzer.py line 36
 3,2025-09-04,Claude,76,76,5,Token management failure 850MB shutdown ignored,PTDTMAnalyzer.py line 37
 4,2025-09-05,Claude,70,70,3,Standard session performance minor issues,PTDTMAnalyzer.py line 38
-5,2025-09-06,Claude,85,99,25,RF-001: Statistical fabrication reputational fatality risk,PTDTMAnalyzer.py line 39
+5,2025-09-06,Claude,85,99,10,RF-001: Statistical fabrication reputational fatality risk,PTDTMAnalyzer.py line 39
 6,2025-09-07,Claude,42,42,0,Session 6: Critical threshold breach below 65%,PTDTMAnalyzer.py line 40
 7,2025-09-07,Claude,40,85,12,Session 2 continuation - catastrophic degradation,PTDTMAnalyzer.py line 41
 8,2025-09-07,Claude,80,89,15,Session 7 - entering catastrophic degradation zone,PTDTMAnalyzer.py line 42
