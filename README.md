@@ -42,22 +42,6 @@ This repository contains the empirical analysis of Progressive Token Degradation
 
 4. **Cross-Platform Validation**: Both Claude and ChatGPT exhibit similar patterns
 
-## Installation & Usage
-
-```bash
-# Clone repository
-git clone https://github.com/patrick1981/ptdtm-theory.git
-cd ptdtm-theory
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run primary analysis
-python scripts/ptdtm_analyzer_v1.py
-
-# Run 1000-session simulation
-python scripts/tdt_1000_session_sim.py
-```
 
 ## Dataset
 
@@ -126,7 +110,7 @@ This research is ongoing. Contributions welcome:
 
 ## Authors
 
-- Patrick (patrick1981) - Primary researcher
+- Patrick D. - Primary researcher
 - Claude Opus 4.1 - Analysis assistance
 - ChatGPT - Data generation (including notorious stub file P0-291)
 
@@ -153,5 +137,3 @@ Special recognition to:
 - Session 36: The legendary "290+ P0s" system breakdown
 - ChatGPT: For providing the perfect example of degradation via stub file generation
 ---
-
-*"The best evidence for token degradation is when an AI fails to document its own failures"* - Session 36, 2025-09-09
